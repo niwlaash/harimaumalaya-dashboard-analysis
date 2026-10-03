@@ -328,7 +328,7 @@ st.sidebar.caption("Data Sources: Transfermarkt verified match time, FotMob even
 # ==============================================================================
 if selected_workspace == "⚽ Tactical Studio & Lineup Customizer":
     st.markdown("### ⚽ Tactical Studio & Lineup Customizer")
-    st.caption("Interactively build the starting XI from all 103 eligible Malaysian players, monitor real-time balance metrics, and simulate tactical player substitutions.")
+    st.caption(f"Interactively build the starting XI from all {len(master_df)} tracked Malaysian players, stars & prospects, monitor real-time balance metrics, and simulate tactical player substitutions.")
 
     tact_col1, tact_col2 = st.columns([1.35, 1])
 
@@ -546,9 +546,16 @@ elif selected_workspace == "🔍 Player Intelligence & Scouting Radar":
     if filter_pool != "All":
         filtered_df = filtered_df[filtered_df["pool_status"] == filter_pool]
     if search_kw:
+        import unicodedata
+        def _strip_accents(s):
+            if not isinstance(s, str):
+                return ""
+            return "".join(c for c in unicodedata.normalize("NFD", s) if unicodedata.category(c) != "Mn").lower()
+        
+        q_clean = _strip_accents(search_kw.strip())
         filtered_df = filtered_df[
-            filtered_df["name"].str.contains(search_kw, case=False, na=False) |
-            filtered_df["full_name"].str.contains(search_kw, case=False, na=False)
+            filtered_df["name"].apply(_strip_accents).str.contains(q_clean, na=False) |
+            filtered_df["full_name"].apply(_strip_accents).str.contains(q_clean, na=False)
         ]
 
     st.markdown(f"**Showing {len(filtered_df)} eligible Malaysian players matching active filters:**")
@@ -714,10 +721,19 @@ elif selected_workspace == "📊 Squad Performance & Minutes Analytics":
 
     # Scope Filter for Visualizations
     v_col1, v_col2 = st.columns([1, 1])
+    n_asean = len(master_df[master_df["pool_status"] == "ASEAN Cup 2026 Squad"])
+    n_past = len(master_df[master_df["pool_status"] == "Senior International (2023-2026)"])
+    n_prosp = len(master_df[master_df["pool_status"].astype(str).str.contains("Prospect|Heritage|Diaspora|Naturaliz", case=False, na=False)])
+
     with v_col1:
         pool_filter = st.selectbox(
             "Visualization Dataset Scope:",
-            ["All Eligible Malaysian Players (103)", "Active ASEAN 2026 Squad (23)", "Recent Senior Internationals (12)", "Prospects & Overseas Pool (15)"]
+            [
+                f"All Tracked Malaysian Players ({len(master_df)})",
+                f"Active ASEAN 2026 Squad ({n_asean})",
+                f"Recent Senior Internationals ({n_past})",
+                f"Prospects & Naturalization Stars ({n_prosp})"
+            ]
         )
     with v_col2:
         pos_filter_vis = st.selectbox(
@@ -732,7 +748,7 @@ elif selected_workspace == "📊 Squad Performance & Minutes Analytics":
     elif "Recent Senior" in pool_filter:
         chart_df = chart_df[chart_df["pool_status"] == "Senior International (2023-2026)"]
     elif "Prospects" in pool_filter:
-        chart_df = chart_df[chart_df["pool_status"].astype(str).str.contains("Prospect|Heritage|Diaspora", case=False, na=False)]
+        chart_df = chart_df[chart_df["pool_status"].astype(str).str.contains("Prospect|Heritage|Diaspora|Naturaliz", case=False, na=False)]
 
     if pos_filter_vis != "All Positions":
         cat_map = {"Goalkeepers": "Goalkeeper", "Defenders": "Defender", "Midfielders": "Midfielder", "Attackers": "Attacker"}

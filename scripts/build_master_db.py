@@ -16,8 +16,8 @@ def main():
     master_players = []
     seen_names = set()
     INELIGIBLE_NAMES = {
-        "mats deijl", "ferdy druijf", "manuel hidalgo", "sem scheperman",
-        "julian bechler", "bérgson", "bergson", "joshua brownhill"
+        "mats deijl", "ferdy druijf", "sem scheperman",
+        "julian bechler", "joshua brownhill"
     }
 
     def is_ineligible(name_str):
