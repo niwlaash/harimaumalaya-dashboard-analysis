@@ -20,10 +20,24 @@ from src.visualizations.charts import create_minutes_bar_chart, create_goal_cont
 from src.analytics.tactical_engine import calculate_team_tactical_balance, analyze_player_swap
 from src.analytics.scouting_model import calculate_scouting_score, get_player_archetype
 
-# Streamlit Page Setup with Tiger Favicon
+from PIL import Image
+import base64
+
+# Load Official Harimau Malaya Crest
+crest_path = "assets/harimau_malaya_crest.png"
+if os.path.exists(crest_path):
+    icon_image = Image.open(crest_path)
+    with open(crest_path, "rb") as f:
+        crest_b64 = base64.b64encode(f.read()).decode("utf-8")
+    crest_uri = f"data:image/png;base64,{crest_b64}"
+else:
+    icon_image = "🐅"
+    crest_uri = ""
+
+# Streamlit Page Setup with Official Crest Favicon
 st.set_page_config(
     page_title="Harimau Malaya // Performance Intelligence Hub",
-    page_icon="🐅",
+    page_icon=icon_image,
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -256,15 +270,15 @@ def format_score(val: int) -> str:
         return f'<span class="metric-score-low">{val}</span>'
 
 
-# Editorial Header with Harimau Malaya Tiger Crest
-st.markdown("""
+# Editorial Header with Official Harimau Malaya Crest
+st.markdown(f"""
 <div class="masthead">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-        <div style="display: flex; align-items: center; gap: 14px;">
-            <div class="harimau-badge">🐅</div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <img src="{crest_uri}" style="width: 64px; height: 64px; object-fit: contain; filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.5)); flex-shrink: 0;">
             <div>
                 <div class="masthead-title">HARIMAU MALAYA // PERFORMANCE INTELLIGENCE HUB</div>
-                <div class="masthead-subtitle">National Squad Analytics • Tactical Selection Studio • Wyscout & Opta Intelligence</div>
+                <div class="masthead-subtitle">Persatuan Bolasepak Malaysia (FAM) • Technical Scouting & Tactical Studio</div>
             </div>
         </div>
         <div style="display: flex; gap: 8px;">
@@ -280,6 +294,14 @@ st.markdown("""
 # ==============================================================================
 # STREAMLINED 3-HUB NAVIGATION
 # ==============================================================================
+st.sidebar.markdown(f"""
+<div style="text-align: center; margin-bottom: 14px; padding: 6px 0;">
+    <img src="{crest_uri}" style="width: 95px; height: 95px; object-fit: contain; filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.45)); margin: 0 auto; display: block;">
+    <div style="color: #fbbf24; font-weight: 800; font-size: 0.88rem; margin-top: 8px; letter-spacing: 0.03em;">FA MALAYSIA</div>
+    <div style="color: #94a3b8; font-size: 0.70rem; letter-spacing: 0.06em; text-transform: uppercase;">Technical Analysis Unit</div>
+</div>
+""", unsafe_allow_html=True)
+
 st.sidebar.markdown("### OPERATIONAL WORKSPACES")
 selected_workspace = st.sidebar.radio(
     "Select Workspace:",
