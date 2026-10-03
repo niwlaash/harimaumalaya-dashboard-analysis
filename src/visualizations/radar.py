@@ -121,3 +121,7 @@ def create_comparison_radar(p1: dict, p2: dict, p3: dict = None):
         height=450
     )
     return fig
+
+# Alias for consistent naming
+create_player_attribute_radar = create_attribute_radar
+

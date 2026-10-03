@@ -7,7 +7,10 @@
     "dob": "2002-02-11",
     "height": 170,
     "position": "Centre-Forward",
-    "secondary_positions": ["Right Winger", "Left Winger"],
+    "secondary_positions": [
+      "Right Winger",
+      "Left Winger"
+    ],
     "position_category": "Attacker",
     "club": "YSCC Yokohama",
     "league": "J3 League",
@@ -26,7 +29,8 @@
       "Potential": 85
     },
     "heatmap_type": "advanced_forward",
-    "scouting_summary": "Explosive forward gaining valuable technical experience in Japan after stints in Belgium (K.V. Kortrijk) and Iceland. Elite burst of acceleration and instinctive penalty box runs."
+    "scouting_summary": "Explosive forward gaining valuable technical experience in Japan after stints in Belgium (K.V. Kortrijk) and Iceland. Elite burst of acceleration and instinctive penalty box runs.",
+    "photo_url": "https://ui-avatars.com/api/?name=Luqman%20Hakim&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 102,
@@ -36,7 +40,9 @@
     "dob": "1998-09-14",
     "height": 178,
     "position": "Central Midfield",
-    "secondary_positions": ["Defensive Midfield"],
+    "secondary_positions": [
+      "Defensive Midfield"
+    ],
     "position_category": "Midfielder",
     "club": "St. Louis City SC",
     "league": "Major League Soccer",
@@ -55,7 +61,8 @@
       "Potential": 86
     },
     "heatmap_type": "midfield_pivot",
-    "scouting_summary": "Top-tier MLS-developed central midfielder dubbed the 'American Iniesta'. High passing accuracy (90%+), superb progressive distribution, and keen tactical understanding. High priority for national team midfield."
+    "scouting_summary": "Top-tier MLS-developed central midfielder dubbed the 'American Iniesta'. High passing accuracy (90%+), superb progressive distribution, and keen tactical understanding. High priority for national team midfield.",
+    "photo_url": "https://ui-avatars.com/api/?name=Wan%20Kuzain&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 103,
@@ -65,7 +72,9 @@
     "dob": "2002-08-09",
     "height": 177,
     "position": "Central Midfield",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Midfielder",
     "club": "Akron Zips / USL Championship",
     "league": "NCAA / USL",
@@ -84,7 +93,8 @@
       "Potential": 84
     },
     "heatmap_type": "box_to_box",
-    "scouting_summary": "Younger brother of Wan Kuzain. High ceiling box-to-box midfielder with sharp turn of pace and vertical transitional passing."
+    "scouting_summary": "Younger brother of Wan Kuzain. High ceiling box-to-box midfielder with sharp turn of pace and vertical transitional passing.",
+    "photo_url": "https://ui-avatars.com/api/?name=Wan%20Kuzri&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 104,
@@ -94,7 +104,10 @@
     "dob": "2002-10-15",
     "height": 178,
     "position": "Right-Back",
-    "secondary_positions": ["Central Midfield", "Left-Back"],
+    "secondary_positions": [
+      "Central Midfield",
+      "Left-Back"
+    ],
     "position_category": "Defender",
     "club": "Farnborough / EFL System",
     "league": "National League South / EFL",
@@ -113,7 +126,8 @@
       "Potential": 83
     },
     "heatmap_type": "wing_back_right",
-    "scouting_summary": "Charlton Athletic academy graduate. Incredibly versatile player capable of operating at both fullback positions and central midfield with high physical stamina."
+    "scouting_summary": "Charlton Athletic academy graduate. Incredibly versatile player capable of operating at both fullback positions and central midfield with high physical stamina.",
+    "photo_url": "https://ui-avatars.com/api/?name=Richard%20Chin&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 105,
@@ -123,7 +137,10 @@
     "dob": "2001-06-28",
     "height": 180,
     "position": "Attacking Midfield",
-    "secondary_positions": ["Central Midfield", "Left Winger"],
+    "secondary_positions": [
+      "Central Midfield",
+      "Left Winger"
+    ],
     "position_category": "Midfielder",
     "club": "King's Lynn Town / National League",
     "league": "National League System",
@@ -142,7 +159,8 @@
       "Potential": 80
     },
     "heatmap_type": "advanced_playmaker",
-    "scouting_summary": "Former Cagliari and West Brom youth prospect. Silky dribbler with creative flair, eye for a defense-splitting through-ball, and long-range shooting ability."
+    "scouting_summary": "Former Cagliari and West Brom youth prospect. Silky dribbler with creative flair, eye for a defense-splitting through-ball, and long-range shooting ability.",
+    "photo_url": "https://ui-avatars.com/api/?name=Kobe%20Chong&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 106,
@@ -152,7 +170,9 @@
     "dob": "1997-07-15",
     "height": 180,
     "position": "Right-Back",
-    "secondary_positions": ["Centre-Back"],
+    "secondary_positions": [
+      "Centre-Back"
+    ],
     "position_category": "Defender",
     "club": "Go Ahead Eagles",
     "league": "Eredivisie",
@@ -171,7 +191,8 @@
       "Experience": 90
     },
     "heatmap_type": "wing_back_right",
-    "scouting_summary": "Captain and established starter in the Dutch Eredivisie. Elite defensive organization and consistent match ratings against top European clubs like Ajax, PSV, and Feyenoord. If documentation clears FIFA criteria, instant starter for Malaysia."
+    "scouting_summary": "Captain and established starter in the Dutch Eredivisie. Elite defensive organization and consistent match ratings against top European clubs like Ajax, PSV, and Feyenoord. If documentation clears FIFA criteria, instant starter for Malaysia.",
+    "photo_url": "https://ui-avatars.com/api/?name=Mats%20Deijl&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 107,
@@ -199,7 +220,8 @@
       "Hold-up Play": 87
     },
     "heatmap_type": "target_forward",
-    "scouting_summary": "Towering target man with lethal aerial power and clinical penalty box finishing. Played for AZ Alkmaar and Rapid Vienna in European club competitions. Would provide Harimau Malaya unprecedented physical presence up front."
+    "scouting_summary": "Towering target man with lethal aerial power and clinical penalty box finishing. Played for AZ Alkmaar and Rapid Vienna in European club competitions. Would provide Harimau Malaya unprecedented physical presence up front.",
+    "photo_url": "https://ui-avatars.com/api/?name=Ferdy%20Druijf&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 108,
@@ -209,7 +231,9 @@
     "dob": "2001-11-07",
     "height": 178,
     "position": "Central Midfield",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Midfielder",
     "club": "Selangor FC",
     "league": "Malaysia Super League",
@@ -228,7 +252,8 @@
       "Potential": 87
     },
     "heatmap_type": "box_to_box",
-    "scouting_summary": "Former Malaysia U23 captain. High-tempo central midfielder with leadership maturity, venomous shooting from edge of box, and set-piece delivery."
+    "scouting_summary": "Former Malaysia U23 captain. High-tempo central midfielder with leadership maturity, venomous shooting from edge of box, and set-piece delivery.",
+    "photo_url": "https://ui-avatars.com/api/?name=Mukhairi%20Ajmal&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 109,
@@ -238,7 +263,9 @@
     "dob": "2002-09-02",
     "height": 175,
     "position": "Centre-Forward",
-    "secondary_positions": ["Right Winger"],
+    "secondary_positions": [
+      "Right Winger"
+    ],
     "position_category": "Attacker",
     "club": "Penang FC",
     "league": "Malaysia Super League",
@@ -257,7 +284,8 @@
       "Potential": 84
     },
     "heatmap_type": "advanced_forward",
-    "scouting_summary": "Golden Boot winner at AFF U23 Championship. Natural predatory instincts in the 6-yard box and relentless off-the-ball pressing."
+    "scouting_summary": "Golden Boot winner at AFF U23 Championship. Natural predatory instincts in the 6-yard box and relentless off-the-ball pressing.",
+    "photo_url": "https://ui-avatars.com/api/?name=Alif%20Ikmalrizal&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 110,
@@ -267,7 +295,9 @@
     "dob": "1999-11-09",
     "height": 171,
     "position": "Left Winger",
-    "secondary_positions": ["Right Winger"],
+    "secondary_positions": [
+      "Right Winger"
+    ],
     "position_category": "Attacker",
     "club": "Terengganu FC",
     "league": "Malaysia Super League",
@@ -286,7 +316,8 @@
       "Potential": 82
     },
     "heatmap_type": "inverted_winger_left",
-    "scouting_summary": "Explosive winger with clutch goal record in domestic finals. Direct dribbler who loves isolating fullbacks in 1v1 situations."
+    "scouting_summary": "Explosive winger with clutch goal record in domestic finals. Direct dribbler who loves isolating fullbacks in 1v1 situations.",
+    "photo_url": "https://ui-avatars.com/api/?name=Hakimi%20Abdullah&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 111,
@@ -314,7 +345,8 @@
       "Potential": 88
     },
     "heatmap_type": "goalkeeper",
-    "scouting_summary": "Primary future candidate for Malaysia #1 jersey. Exceptional modern goalkeeper equipped with swept-up footwork, composed distribution, and sharp reaction saves."
+    "scouting_summary": "Primary future candidate for Malaysia #1 jersey. Exceptional modern goalkeeper equipped with swept-up footwork, composed distribution, and sharp reaction saves.",
+    "photo_url": "https://ui-avatars.com/api/?name=Sikh%20Izhan&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 112,
@@ -324,7 +356,10 @@
     "dob": "2004-02-02",
     "height": 175,
     "position": "Right Winger",
-    "secondary_positions": ["Left Winger", "Attacking Midfield"],
+    "secondary_positions": [
+      "Left Winger",
+      "Attacking Midfield"
+    ],
     "position_category": "Attacker",
     "club": "Brighton Academy / European Tier",
     "league": "Premier League 2 / European Tier",
@@ -343,7 +378,8 @@
       "Potential": 85
     },
     "heatmap_type": "inverted_winger_right",
-    "scouting_summary": "Brighton & Hove Albion academy product. Highly technical wide forward with quick change of pace and trickery in tight half-spaces."
+    "scouting_summary": "Brighton & Hove Albion academy product. Highly technical wide forward with quick change of pace and trickery in tight half-spaces.",
+    "photo_url": "https://ui-avatars.com/api/?name=Jaami%20Qureshi&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 113,
@@ -353,7 +389,9 @@
     "dob": "2003-01-06",
     "height": 184,
     "position": "Centre-Forward",
-    "secondary_positions": ["Right Winger"],
+    "secondary_positions": [
+      "Right Winger"
+    ],
     "position_category": "Attacker",
     "club": "KL City FC",
     "league": "Malaysia Super League",
@@ -372,7 +410,8 @@
       "Potential": 87
     },
     "heatmap_type": "advanced_forward",
-    "scouting_summary": "Physically imposing modern young forward with high running volume. Capable of driving down the right wing or leading the line as an athletic number 9."
+    "scouting_summary": "Physically imposing modern young forward with high running volume. Capable of driving down the right wing or leading the line as an athletic number 9.",
+    "photo_url": "https://ui-avatars.com/api/?name=Haqimi%20Azim&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 114,
@@ -382,7 +421,9 @@
     "dob": "2001-02-26",
     "height": 172,
     "position": "Left Winger",
-    "secondary_positions": ["Right Winger"],
+    "secondary_positions": [
+      "Right Winger"
+    ],
     "position_category": "Attacker",
     "club": "Sri Pahang FC",
     "league": "Malaysia Super League",
@@ -401,7 +442,8 @@
       "Potential": 84
     },
     "heatmap_type": "inverted_winger_left",
-    "scouting_summary": "Hat-trick hero at SEA Games. Tremendous acceleration over first 10 yards and sharp cutting inside onto stronger foot."
+    "scouting_summary": "Hat-trick hero at SEA Games. Tremendous acceleration over first 10 yards and sharp cutting inside onto stronger foot.",
+    "photo_url": "https://ui-avatars.com/api/?name=T.%20Saravanan&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 115,
@@ -411,7 +453,9 @@
     "dob": "1997-03-27",
     "height": 173,
     "position": "Central Midfield",
-    "secondary_positions": ["Defensive Midfield"],
+    "secondary_positions": [
+      "Defensive Midfield"
+    ],
     "position_category": "Midfielder",
     "club": "Kuching City FC",
     "league": "Malaysia Super League",
@@ -430,7 +474,8 @@
       "Potential": 79
     },
     "heatmap_type": "midfield_pivot",
-    "scouting_summary": "AFC U23 Championship 2018 historic hero. Resurgent playmaking anchor at Kuching City with measured transitional passing and composure under pressure."
+    "scouting_summary": "AFC U23 Championship 2018 historic hero. Resurgent playmaking anchor at Kuching City with measured transitional passing and composure under pressure.",
+    "photo_url": "https://ui-avatars.com/api/?name=Daniel%20Amier&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 116,
@@ -440,7 +485,9 @@
     "dob": "1994-09-25",
     "height": 172,
     "position": "Central Midfield",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Midfielder",
     "club": "KL City FC",
     "league": "Malaysia Super League",
@@ -459,7 +506,8 @@
       "Leadership": 82
     },
     "heatmap_type": "box_to_box",
-    "scouting_summary": "Malaysia Cup 2021 final goalscorer and man of the match. Tireless workhorse with knack for late surging runs into the box."
+    "scouting_summary": "Malaysia Cup 2021 final goalscorer and man of the match. Tireless workhorse with knack for late surging runs into the box.",
+    "photo_url": "https://ui-avatars.com/api/?name=Zhafri%20Yahya&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
     "id": 117,
@@ -487,6 +535,7 @@
       "Composure": 76
     },
     "heatmap_type": "goalkeeper",
-    "scouting_summary": "Reliable shot stopper with UK youth academy background (Slough Town / Tooting). Proven presence in ACL Two matches with Selangor FC."
+    "scouting_summary": "Reliable shot stopper with UK youth academy background (Slough Town / Tooting). Proven presence in ACL Two matches with Selangor FC.",
+    "photo_url": "https://ui-avatars.com/api/?name=Samuel%20Somerville&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   }
 ]

@@ -7,7 +7,9 @@
     "dob": "1995-02-07",
     "height": 178,
     "position": "Right-Back",
-    "secondary_positions": ["Centre-Back"],
+    "secondary_positions": [
+      "Centre-Back"
+    ],
     "position_category": "Defender",
     "preferred_foot": "Right",
     "club": "Johor Darul Ta'zim",
@@ -19,7 +21,7 @@
     "market_value_eur": 350000,
     "minutes_26_27": 360,
     "apps_26_27": 4,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/258284-1680051080.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Matthew%20Davies&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 78,
       "Defending": 84,
@@ -55,7 +57,7 @@
     "market_value_eur": 225000,
     "minutes_26_27": 540,
     "apps_26_27": 6,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/483679-1663334800.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Dominic%20Tan&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 73,
       "Defending": 81,
@@ -91,7 +93,7 @@
     "market_value_eur": 200000,
     "minutes_26_27": 270,
     "apps_26_27": 3,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/248386-1680051111.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Shahrul%20Saad&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 72,
       "Defending": 83,
@@ -110,13 +112,15 @@
   },
   {
     "id": 304,
-    "name": "Junior Eldstål",
-    "full_name": "Junior Gunnar Putros Eldstål",
+    "name": "Junior Eldst\u00e5l",
+    "full_name": "Junior Gunnar Putros Eldst\u00e5l",
     "age": 35,
     "dob": "1991-09-16",
     "height": 191,
     "position": "Centre-Back",
-    "secondary_positions": ["Defensive Midfield"],
+    "secondary_positions": [
+      "Defensive Midfield"
+    ],
     "position_category": "Defender",
     "preferred_foot": "Right",
     "club": "Johor Darul Ta'zim",
@@ -128,7 +132,7 @@
     "market_value_eur": 150000,
     "minutes_26_27": 180,
     "apps_26_27": 2,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/267980-1680051125.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Junior%20Eldst%C3%A5l&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 66,
       "Defending": 81,
@@ -153,7 +157,9 @@
     "dob": "1997-10-01",
     "height": 184,
     "position": "Defensive Midfield",
-    "secondary_positions": ["Central Midfield"],
+    "secondary_positions": [
+      "Central Midfield"
+    ],
     "position_category": "Midfielder",
     "preferred_foot": "Right",
     "club": "Penang FC",
@@ -165,7 +171,7 @@
     "market_value_eur": 225000,
     "minutes_26_27": 490,
     "apps_26_27": 6,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/483681-1680051180.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Syamer%20Kutty%20Abba&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 74,
       "Defending": 82,
@@ -190,7 +196,10 @@
     "dob": "1997-03-05",
     "height": 173,
     "position": "Right Winger",
-    "secondary_positions": ["Left Winger", "Centre-Forward"],
+    "secondary_positions": [
+      "Left Winger",
+      "Centre-Forward"
+    ],
     "position_category": "Attacker",
     "preferred_foot": "Left",
     "club": "Terengganu FC",
@@ -202,7 +211,7 @@
     "market_value_eur": 300000,
     "minutes_26_27": 520,
     "apps_26_27": 6,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/483677-1680051253.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Safawi%20Rasid&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 83,
       "Shooting": 86,
@@ -227,7 +236,9 @@
     "dob": "1999-05-01",
     "height": 169,
     "position": "Left Winger",
-    "secondary_positions": ["Right Winger"],
+    "secondary_positions": [
+      "Right Winger"
+    ],
     "position_category": "Attacker",
     "preferred_foot": "Right",
     "club": "Terengganu FC",
@@ -239,7 +250,7 @@
     "market_value_eur": 275000,
     "minutes_26_27": 480,
     "apps_26_27": 6,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/541769-1680051263.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Akhyar%20Rashid&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 87,
       "Dribbling": 86,
@@ -275,7 +286,7 @@
     "market_value_eur": 200000,
     "minutes_26_27": 420,
     "apps_26_27": 5,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/443729-1663334812.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Darren%20Lok&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 76,
       "Finishing": 81,
@@ -295,12 +306,14 @@
   {
     "id": 309,
     "name": "Romel Morales",
-    "full_name": "Romel Oswaldo Morales Ramírez",
+    "full_name": "Romel Oswaldo Morales Ram\u00edrez",
     "age": 29,
     "dob": "1997-08-23",
     "height": 187,
     "position": "Centre-Forward",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Attacker",
     "preferred_foot": "Right",
     "club": "Johor Darul Ta'zim",
@@ -312,7 +325,7 @@
     "market_value_eur": 350000,
     "minutes_26_27": 280,
     "apps_26_27": 4,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/545084-1736178556.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Romel%20Morales&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 77,
       "Finishing": 84,
@@ -337,7 +350,9 @@
     "dob": "1988-06-03",
     "height": 180,
     "position": "Central Midfield",
-    "secondary_positions": ["Defensive Midfield"],
+    "secondary_positions": [
+      "Defensive Midfield"
+    ],
     "position_category": "Midfielder",
     "preferred_foot": "Right",
     "club": "KL City FC",
@@ -349,7 +364,7 @@
     "market_value_eur": 125000,
     "minutes_26_27": 410,
     "apps_26_27": 5,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/114979-1663334830.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Brendan%20Gan&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 68,
       "Passing": 81,
@@ -364,7 +379,7 @@
       "pass_acc_pct": 84.1,
       "duel_win_pct": 61.2
     },
-    "scouting_summary": "Inspirational veteran midfield leader in the 2023–2024 international window. Excellent positioning, vocal command, and high-intensity physical commitment."
+    "scouting_summary": "Inspirational veteran midfield leader in the 2023\u20132024 international window. Excellent positioning, vocal command, and high-intensity physical commitment."
   },
   {
     "id": 311,
@@ -374,7 +389,9 @@
     "dob": "1995-03-07",
     "height": 182,
     "position": "Central Midfield",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Midfielder",
     "preferred_foot": "Left",
     "club": "Ho Chi Minh City FC / JDT",
@@ -386,7 +403,7 @@
     "market_value_eur": 300000,
     "minutes_26_27": 360,
     "apps_26_27": 4,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/545083-1680051167.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Endrick%20dos%20Santos&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 74,
       "Passing": 83,
@@ -411,7 +428,9 @@
     "dob": "2001-02-12",
     "height": 174,
     "position": "Right-Back",
-    "secondary_positions": ["Right Wing-Back"],
+    "secondary_positions": [
+      "Right Wing-Back"
+    ],
     "position_category": "Defender",
     "preferred_foot": "Right",
     "club": "Terengganu FC / JDT",
@@ -423,7 +442,7 @@
     "market_value_eur": 250000,
     "minutes_26_27": 380,
     "apps_26_27": 5,
-    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/684127-1663334820.jpg?lm=4711",
+    "photo_url": "https://ui-avatars.com/api/?name=Azam%20Azmi&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38",
     "attributes": {
       "Pace": 84,
       "Defending": 77,

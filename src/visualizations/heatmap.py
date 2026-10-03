@@ -162,3 +162,20 @@ def generate_player_heatmap(player_name: str, position: str, heatmap_type: str =
     }
 
     return fig, zone_stats
+
+def generate_player_action_heatmap(player_data, position=None):
+    """Convenience wrapper returning just the Plotly Figure."""
+    if isinstance(player_data, dict):
+        name = player_data.get("name", "Player")
+        pos = player_data.get("position", "Winger")
+    else:
+        name = str(player_data)
+        pos = position or "Winger"
+    fig, _ = generate_player_heatmap(name, pos)
+    return fig
+
+def calculate_positional_coverage(position: str) -> dict:
+    """Convenience wrapper returning field zone distribution percentages."""
+    _, zones = generate_player_heatmap("ZoneSample", position)
+    return zones
+
