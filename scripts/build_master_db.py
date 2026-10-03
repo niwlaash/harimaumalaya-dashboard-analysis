@@ -1890,5 +1890,14 @@ def main():
 
     print(f"Master database created successfully with {len(master_players)} Malaysian players!")
 
+    # Enrich with Data Science & Performance Analytics models
+    try:
+        import sys
+        sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+        from scripts.enrich_master_analytics import enrich_master_database
+        enrich_master_database()
+    except Exception as e:
+        print(f"Enrichment note: {e}")
+
 if __name__ == "__main__":
     main()
