@@ -281,7 +281,7 @@ st.markdown(f"""
 <div class="masthead">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
         <div style="display: flex; align-items: center; gap: 16px;">
-            <img src="{crest_uri}" style="width: 64px; height: 64px; object-fit: contain; filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.5)); flex-shrink: 0;">
+            <img src="{crest_uri}" style="width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.45)); flex-shrink: 0;">
             <div>
                 <div class="masthead-title">HARIMAU MALAYA // PERFORMANCE INTELLIGENCE HUB</div>
                 <div class="masthead-subtitle">Persatuan Bolasepak Malaysia (FAM) • Technical Scouting & Tactical Studio</div>
@@ -302,9 +302,9 @@ st.markdown(f"""
 # ==============================================================================
 st.sidebar.markdown(f"""
 <div style="text-align: center; margin-bottom: 14px; padding: 6px 0;">
-    <img src="{crest_uri}" style="width: 95px; height: 95px; object-fit: contain; filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.45)); margin: 0 auto; display: block;">
-    <div style="color: #fbbf24; font-weight: 800; font-size: 0.88rem; margin-top: 8px; letter-spacing: 0.03em;">FA MALAYSIA</div>
-    <div style="color: #94a3b8; font-size: 0.70rem; letter-spacing: 0.06em; text-transform: uppercase;">Technical Analysis Unit</div>
+    <img src="{crest_uri}" style="width: 110px; height: 110px; object-fit: contain; filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.45)); margin: 0 auto; display: block;">
+    <div style="color: #fbbf24; font-weight: 800; font-size: 0.95rem; margin-top: 8px; letter-spacing: 0.04em;">HARIMAU MALAYA</div>
+    <div style="color: #94a3b8; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;">Performance Intelligence Hub</div>
 </div>
 """, unsafe_allow_html=True)
 
