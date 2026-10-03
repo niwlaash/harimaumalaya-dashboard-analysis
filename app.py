@@ -284,7 +284,8 @@ selected_view = st.sidebar.radio(
         "Master Malaysian Player Register (Wyscout Database)",
         "Recent Internationals (2023–2026 Cycle)",
         "National Prospect & Heritage Scouting",
-        "Performance Data & Minutes Tracker"
+        "Performance Data & Minutes Tracker",
+        "Analytical Methodology & Data Lineage (PA Guide)"
     ]
 )
 
@@ -411,6 +412,24 @@ if selected_view == "Tactical Board & Starting XI Customizer":
             <div class="stat-card-sub">Squad Age Profile</div>
         </div>
         """, unsafe_allow_html=True)
+
+    with st.expander("ℹ️ How are these 6 Team Tactical Balance Indices calculated? (Mathematical Breakdown)", expanded=False):
+        st.markdown("""
+        **Team Tactical Balance Analytical Model:**
+        - **Attacking Threat (0–100):** Evaluates collective shot and transition creation power of the attacking line & midfielders:
+          $$\\text{Threat} = \\text{Mean}(\\text{Finishing} \\times 0.35 + \\text{Dribbling} \\times 0.25 + \\text{Passing} \\times 0.20 + \\text{Pace} \\times 0.20)$$
+        - **Defensive Solidity (0–100):** Measures central resistance against counters, duel win rates, and rest-defense organization:
+          $$\\text{Solidity} = \\text{Mean}(\\text{Defending} \\times 0.40 + \\text{Tactical Awareness} \\times 0.30 + \\text{Physicality} \\times 0.30)$$
+        - **Pressing Index (0–100):** Outfield counter-pressing engine, high turnovers, and recovery sprints:
+          $$\\text{Pressing} = \\text{Mean}(\\text{Work Rate} \\times 0.45 + \\text{Pace} \\times 0.30 + \\text{Physical} \\times 0.25)$$
+        - **Build-Up Fluidity (0–100):** Progressive passing quality and press resistance in first and second phases:
+          $$\\text{Fluidity} = \\text{Mean}(\\text{Passing} \\times 0.50 + \\text{Vision} \\times 0.30 + \\text{Dribbling} \\times 0.20)$$
+        - **Aerial Dominance (0–100):** Box clearance success and set-piece first-contact rate:
+          $$\\text{Aerial} = \\text{Mean}(\\text{Heading/Aerial} \\times 0.60 + \\text{Physical} \\times 0.40)$$
+        - **Average Squad Age:** Arithmetic mean of current active XI starting players.
+        
+        *For full data lineage from Transfermarkt, FotMob, and SofaScore, navigate to **Analytical Methodology (PA Guide)** in the sidebar.*
+        """)
 
 
 # ==============================================================================
@@ -882,3 +901,186 @@ elif selected_view == "Performance Data & Minutes Tracker":
         file_name="malaysia_master_player_database_2627.csv",
         mime="text/csv"
     )
+
+
+# ==============================================================================
+# VIEW 8: ANALYTICAL METHODOLOGY & DATA LINEAGE (PA GUIDE)
+# ==============================================================================
+elif selected_view == "Analytical Methodology & Data Lineage (PA Guide)":
+    st.markdown("### Analytical Methodology & Data Lineage (Performance Analyst Guide)")
+    st.caption("Technical specification of mathematical formulations, percentile normalizations, league coefficients, and multi-source data provenance.")
+
+    p_tab1, p_tab2, p_tab3, p_tab4 = st.tabs([
+        "1. Tactical Balance & Delta Matrix",
+        "2. Scouting Readiness Index Formula",
+        "3. Data Provenance & Ingestion Pipeline",
+        "4. Metrics Dictionary & Definitions"
+    ])
+
+    with p_tab1:
+        st.markdown("#### Tactical Balance Indices & Attribute Delta Variance")
+        st.write("The platform utilizes quantitative performance modeling to assist coaches and Performance Analysts in evaluating starting XI balance and rotation impacts.")
+
+        st.markdown("##### 1. Attribute Delta Variance Matrix ($\Delta$)")
+        st.write("""
+        When comparing two players (e.g. Starter OUT vs. Substitution IN), the system computes the exact margin of performance delta:
+        $$\\Delta = \\text{Attribute}_{\\text{IN}} - \\text{Attribute}_{\\text{OUT}}$$
+        - **Gain (Green $\\mathbf{+}$):** Indicates positive incremental capability added to the lineup (e.g. $+5$ Pace enhances transition threat; $+6$ Defending strengthens defensive containment).
+        - **Trade-Off (Red $\\mathbf{-}$):** Identifies the tactical concession or stylistic compromise accepted by the coaching staff (e.g. $-4$ Passing requires alternative progressive outlets).
+        - **Threshold Significance:** Any attribute variance $|\Delta| \ge 5$ triggers dedicated tactical advisories in the Performance Analyst Briefing.
+        """)
+
+        st.markdown("##### 2. Starting XI Team Tactical Balance Formulations (0–100 Scale)")
+        st.write("""
+        The 5 team balance indices are computed dynamically across the 11 active players on the pitch:
+        """)
+
+        col_f1, col_f2 = st.columns(2)
+        with col_f1:
+            st.markdown("""
+            **A. Attacking Threat**
+            $$\\text{Threat} = \\frac{1}{|A|} \\sum_{p \\in A} \\left( 0.35 \\cdot \\text{Finishing}_p + 0.25 \\cdot \\text{Dribbling}_p + 0.20 \\cdot \\text{Passing}_p + 0.20 \\cdot \\text{Pace}_p \\right)$$
+            *Measures collective shot generation, half-space penetration, and clinical finishing across starting forwards and attacking midfielders ($A$).*
+
+            **B. Defensive Solidity**
+            $$\\text{Solidity} = \\frac{1}{|D|} \\sum_{p \\in D} \\left( 0.40 \\cdot \\text{Defending}_p + 0.30 \\cdot \\text{Awareness}_p + 0.30 \\cdot \\text{Physicality}_p \\right)$$
+            *Measures central resistance against opposition counter-attacks, rest-defense solidity, and duel win success across defenders and defensive midfielders ($D$).*
+            """)
+        with col_f2:
+            st.markdown("""
+            **C. Pressing Index**
+            $$\\text{Pressing} = \\frac{1}{|O|} \\sum_{p \\in O} \\left( 0.45 \\cdot \\text{WorkRate}_p + 0.30 \\cdot \\text{Pace}_p + 0.25 \\cdot \\text{Physicality}_p \\right)$$
+            *Evaluates outfield ($O$) collective capacity to execute high-intensity counter-pressing and rapid transition tracking.*
+
+            **D. Build-Up Fluidity**
+            $$\\text{Fluidity} = \\frac{1}{|O|} \\sum_{p \\in O} \\left( 0.50 \\cdot \\text{Passing}_p + 0.30 \\cdot \\text{Vision}_p + 0.20 \\cdot \\text{Dribbling}_p \\right)$$
+            *Measures press-resistance and progressive passing flow through the first and second phases of possession.*
+
+            **E. Aerial Dominance**
+            $$\\text{Aerial} = \\frac{1}{|XI|} \\sum_{p \\in XI} \\left( 0.60 \\cdot \\text{Heading}_p + 0.40 \\cdot \\text{Physicality}_p \\right)$$
+            *Evaluates set-piece first-contact security and defensive box clearance dominance.*
+            """)
+
+    with p_tab2:
+        st.markdown("#### Scouting Readiness Index Mathematical Model")
+        st.write("""
+        The **Scouting Readiness Index (60–100)** determines a player's immediate preparedness for senior international competition with Harimau Malaya.
+        """)
+
+        st.latex(r"\text{Readiness Index} = \left( \sum_{i} w_i \cdot A_i \right) \times C_{\text{League}} \times M_{\text{Sample}} \times F_{\text{Age}}")
+
+        st.markdown("##### Model Coefficients Breakdown:")
+        t_col1, t_col2 = st.columns(2)
+        with t_col1:
+            st.markdown("""
+            **1. Competition Tier Multiplier ($C_{\\text{League}}$):**
+            Compensates for the competitive pace, tactical speed, and physical intensity of different leagues:
+            - **Tier 1 ($1.18\\times$ Multiplier):**
+              * Eredivisie (Netherlands), MLS (USA), J1 League (Japan), European Tier 1.
+              * *Rationale:* High tactical speed and elite defensive blocks demand accelerated decision-making.
+            - **Tier 2 ($1.08\\times$ Multiplier):**
+              * J3 League, Thai League 1, 3. Liga (Germany), Belgian Challenger Pro League.
+              * *Rationale:* Competitive professional environments with elevated physical and athletic demands.
+            - **Tier 3 ($1.00\\times$ Multiplier - Baseline):**
+              * Malaysia Super League (MSL) domestic competition baseline.
+            """)
+        with t_col2:
+            st.markdown("""
+            **2. Playing Time Volume Factor ($M_{\\text{Sample}}$):**
+            Calibrated against verified **2026/27 club competitive minutes** from Transfermarkt:
+            $$M_{\\text{Sample}} = \\min\\left(1.03, 0.94 + \\frac{\\text{Minutes}_{26/27}}{3000}\\right)$$
+            *A player with consistent 90-minute starts carries proven match sharpness, whereas unproven bench options receive a sample reliability adjustment.*
+
+            **3. Age Curve Trajectory ($F_{\\text{Age}}$):**
+            - **Prime Peak Window (23–28 y/o):** $1.02\\times$ (optimal physical and cognitive maturity).
+            - **Emerging U23 Talent (<23 y/o):** $0.98\\times$ (baseline readiness paired with superior upside ceiling).
+            - **Experienced Veteran (>29 y/o):** $0.97\\times$ (preservation and recovery factor).
+            """)
+
+        st.markdown("---")
+        st.markdown("##### 🎛️ Interactive Live Readiness Index Simulator")
+        st.write("Adjust the parameters below to observe the real-time effect on a player's Readiness Score:")
+
+        sim_c1, sim_c2, sim_c3, sim_c4 = st.columns(4)
+        with sim_c1:
+            sim_attr = st.slider("Base Attributes Average (1-99):", 65, 95, 78)
+        with sim_c2:
+            sim_league = st.selectbox("League Tier:", ["Tier 1: European Top-Flight / MLS / J1 (1.18x)", "Tier 2: J3 / Thai League / 3. Liga (1.08x)", "Tier 3: Malaysia Super League (1.00x)"])
+        with sim_c3:
+            sim_mins = st.slider("26/27 Verified Minutes:", 0, 900, 450)
+        with sim_c4:
+            sim_age = st.slider("Player Age:", 18, 38, 25)
+
+        # Compute simulated score
+        c_l = 1.18 if "Tier 1" in sim_league else (1.08 if "Tier 2" in sim_league else 1.00)
+        m_s = min(1.03, 0.94 + (sim_mins / 3000))
+        f_a = 1.02 if 23 <= sim_age <= 28 else (0.98 if sim_age < 23 else 0.97)
+        sim_readiness = round(min(99, max(50, sim_attr * c_l * m_s * f_a)))
+
+        st.markdown(f"""
+        <div style="background: #111827; border: 1px solid #3b82f6; border-radius: 8px; padding: 14px 20px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div>
+                <span style="font-size: 0.85rem; color: #94a3b8; text-transform: uppercase;">Simulated Readiness Index</span>
+                <div style="font-size: 2.2rem; font-weight: 800; color: #facc15;">{sim_readiness} <span style="font-size: 1rem; color: #94a3b8;">/ 100</span></div>
+            </div>
+            <div style="font-size: 0.85rem; color: #cbd5e1; text-align: right;">
+                <div>League Coef: <strong>{c_l:.2f}x</strong> | Minutes Factor: <strong>{m_s:.2f}x</strong></div>
+                <div>Age Trajectory Factor: <strong>{f_a:.2f}x</strong></div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with p_tab3:
+        st.markdown("#### Data Provenance & Multi-Source Ingestion Pipeline")
+        st.write("All intelligence within the platform is synthesized from four primary authoritative sports analytics providers:")
+
+        d_col1, d_col2 = st.columns(2)
+        with d_col1:
+            st.markdown("""
+            ##### 1. Transfermarkt Verified Data
+            - **Playing Time Logs:** Cumulative competitive club minutes in 2026/27 and 2025/26 across MSL, AFC Champions League, J1 League, Thai League, and European competitions.
+            - **Biographical Records:** Date of birth, primary and secondary positions, preferred foot, and physical height.
+            - **Contractual & Market Valuation:** Official player contract expiry timelines and validated market value (€).
+            - **Senior International Record:** Official FIFA-recognized caps and goals.
+
+            ##### 2. FotMob Event Logs
+            - **Match Performance Ratings:** Algorithmically generated match scores (6.0–10.0 scale) based on event touches and turnover frequency.
+            - **Offensive Contributions:** Direct goals, primary assists, expected goals (xG), and expected assists (xA).
+            - **Goalkeeping Metrics:** Post-shot expected goals saved (PSxG), clean sheet count, and saves per 90.
+            """)
+        with d_col2:
+            st.markdown("""
+            ##### 3. SofaScore Positional Radar & Heatmaps
+            - **Action Density Coordinates:** Kernel density estimation (KDE) tracking spatial touch distributions across defensive, middle, and attacking thirds.
+            - **Duel Win Rates:** Ground duel success %, aerial duel win rates, and foul drawing volume.
+            - **Passing Composure:** Pass completion percentage under defensive pressure and long diagonal accuracy.
+
+            ##### 4. Wyscout Benchmark Percentiles
+            - **Positional Calibrations:** Player attributes are normalized against regional distribution percentiles across Asian continental football.
+            - **Key Metric Indicators:** Progressive passes per 90, progressive carries per 90, and counter-pressing ball recoveries in the final third.
+            """)
+
+    with p_tab4:
+        st.markdown("#### Metrics Dictionary & Analytical Glossary")
+        st.write("Standard reference glossary for coaching staff, performance analysts, and technical scouts:")
+
+        glossary_items = [
+            ("Progressive Passes / 90", "Completed forward passes that advance the ball at least 10 meters towards the opposition goal line (or into the penalty area)."),
+            ("Progressive Carries / 90", "Continuous ball carries that advance the ball at least 10 meters into the opponent's defensive half."),
+            ("Key Passes / 90", "Final passes directly leading to a teammate's shot attempt on goal."),
+            ("Duel Win Percentage", "Total percentage of contested 50/50 ground and physical challenges won by the player."),
+            ("Aerial Dominance %", "Percentage of contested aerial duels won inside either 18-yard penalty box."),
+            ("Regista (Deep-Lying Playmaker)", "Central midfielder stationed in front of the center-backs who directs team possession tempo with long range and line-breaking passes (e.g. Natxo Insa)."),
+            ("Box-to-Box Engine", "Dynamic central midfielder capable of contributing equally to defensive transition regains and final-third late box arrivals (e.g. Stuart Wilkin, Brendan Gan)."),
+            ("Inverted Fullback / Wingback", "Wide defender who steps into central midfield pockets during build-up phases to create central passing overloads (e.g. Quentin Cheng, Daniel Ting)."),
+            ("Ball-Playing Defender", "Center-back who initiates attacks via progressive ground passes between opposition lines rather than clearance kicking (e.g. Dion Cools, Ubaidullah Shamsul, Feroz Baharudin).")
+        ]
+
+        for term, desc in glossary_items:
+            st.markdown(f"""
+            <div style="background: #111827; border-left: 3px solid #f59e0b; padding: 10px 14px; margin-bottom: 8px; border-radius: 4px;">
+                <strong style="color: #facc15;">{term}:</strong>
+                <span style="color: #cbd5e1; font-size: 0.88rem; margin-left: 6px;">{desc}</span>
+            </div>
+            """, unsafe_allow_html=True)
+
