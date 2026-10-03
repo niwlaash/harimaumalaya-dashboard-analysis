@@ -4,7 +4,7 @@ import numpy as np
 import json
 import os
 
-# Import modules
+# Import modular analytics and visualizations
 from src.data_collectors.aggregator import DataAggregator
 from src.analytics.metrics import calculate_scouting_score, get_player_archetype
 from src.analytics.tactical_engine import calculate_team_tactical_balance, analyze_player_swap
@@ -20,261 +20,242 @@ from src.visualizations.heatmap import generate_player_heatmap
 
 # Page Configuration
 st.set_page_config(
-    page_title="Harimau Malaya | FM Tactical Workbench",
-    page_icon="🐅",
+    page_title="Harimau Malaya // Performance Intelligence Hub",
+    page_icon="🇲🇾",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Custom Football Manager (FM) Sleek Dark UI Theme
+# Professional Editorial Football Analytics Design (Opta Analyst / StatsBomb / Wyscout inspired)
 st.markdown("""
 <style>
-    /* FM Background & Fonts */
+    /* Global Base */
     .stApp {
-        background-color: #0b0f17;
+        background-color: #0c1017;
         color: #e2e8f0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     
-    /* Top Bar Header */
-    .fm-navbar {
-        background: linear-gradient(90deg, #161f30 0%, #1e293b 60%, #131b26 100%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-left: 5px solid #00f2fe;
-        border-radius: 8px;
-        padding: 18px 24px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    /* Editorial Masthead */
+    .masthead {
+        background: linear-gradient(135deg, #111722 0%, #17202e 50%, #0e141e 100%);
+        border: 1px solid #1f2a3c;
+        border-left: 4px solid #eab308;
+        border-radius: 6px;
+        padding: 20px 24px;
+        margin-bottom: 22px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
     }
-    .fm-title {
-        font-size: 1.85rem;
+    .masthead-title {
+        font-size: 1.65rem;
         font-weight: 800;
-        letter-spacing: 1px;
-        color: #ffffff;
+        letter-spacing: 0.5px;
+        color: #f8fafc;
         margin: 0;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
     }
-    .fm-subtitle {
-        font-size: 0.88rem;
+    .masthead-subtitle {
+        font-size: 0.86rem;
         color: #94a3b8;
-        margin-top: 4px;
+        margin-top: 5px;
     }
     
-    /* Tactical KPI Tiles */
-    .kpi-tile {
-        background: #131b26;
+    /* Performance Metric Cards (Opta Analyst style) */
+    .stat-card {
+        background: #111722;
         border: 1px solid #1e293b;
-        border-radius: 8px;
-        padding: 14px 18px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        border-radius: 6px;
+        padding: 14px 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
-    .kpi-label {
+    .stat-card-label {
         font-size: 0.72rem;
         color: #64748b;
         text-transform: uppercase;
         font-weight: 700;
-        letter-spacing: 0.8px;
+        letter-spacing: 0.6px;
     }
-    .kpi-num {
-        font-size: 1.6rem;
+    .stat-card-value {
+        font-size: 1.55rem;
         font-weight: 800;
-        color: #00f2fe;
+        color: #f8fafc;
         margin: 4px 0 2px 0;
     }
-    .kpi-hint {
-        font-size: 0.75rem;
+    .stat-card-sub {
+        font-size: 0.74rem;
         color: #94a3b8;
     }
 
-    /* Player Profile Card */
-    .fm-profile-card {
-        background: #131b26;
-        border: 1px solid #243247;
-        border-radius: 10px;
-        padding: 20px;
+    /* Player Profile Card (Wyscout / Transfermarkt style) */
+    .profile-card {
+        background: #111722;
+        border: 1px solid #1f2a3c;
+        border-radius: 8px;
+        padding: 18px 22px;
         display: flex;
-        gap: 20px;
+        gap: 18px;
         align-items: center;
         margin-bottom: 20px;
     }
-    .fm-avatar-img {
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
+    .player-headshot {
+        width: 95px;
+        height: 95px;
+        border-radius: 8px;
         object-fit: cover;
-        border: 2px solid #00f2fe;
-        box-shadow: 0 4px 12px rgba(0, 242, 254, 0.2);
+        border: 1px solid #334155;
+        background: #1e293b;
     }
-    .fm-player-name {
-        font-size: 1.6rem;
+    .player-name-heading {
+        font-size: 1.5rem;
         font-weight: 800;
-        color: #ffffff;
+        color: #f8fafc;
         margin: 0;
     }
-    .fm-player-meta {
-        font-size: 0.88rem;
+    .player-meta-line {
+        font-size: 0.85rem;
         color: #94a3b8;
         margin-top: 4px;
     }
 
-    /* FM Attribute Grid Badges */
-    .attr-box {
-        background: #0f1622;
+    /* Clean Editorial Badges */
+    .tag {
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        margin-right: 6px;
+    }
+    .tag-gold { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .tag-blue { background: rgba(2, 132, 199, 0.15); color: #38bdf8; border: 1px solid rgba(2, 132, 199, 0.3); }
+    .tag-slate { background: rgba(51, 65, 85, 0.4); color: #cbd5e1; border: 1px solid #334155; }
+
+    /* Metric Grid Cells */
+    .metric-cell {
+        background: #0d121a;
         border: 1px solid #1e293b;
-        border-radius: 6px;
+        border-radius: 4px;
         padding: 8px 12px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 6px;
     }
-    .attr-name {
-        font-size: 0.82rem;
+    .metric-name {
+        font-size: 0.8rem;
         color: #cbd5e1;
         font-weight: 600;
     }
-    .attr-val-elite {
-        color: #00ff87;
-        font-weight: 800;
-        font-size: 0.95rem;
-    }
-    .attr-val-good {
-        color: #38bdf8;
-        font-weight: 700;
-        font-size: 0.95rem;
-    }
-    .attr-val-avg {
-        color: #fbbf24;
-        font-weight: 700;
-        font-size: 0.95rem;
-    }
+    .metric-score-high { color: #10b981; font-weight: 800; font-size: 0.92rem; }
+    .metric-score-mid { color: #38bdf8; font-weight: 700; font-size: 0.92rem; }
+    .metric-score-low { color: #94a3b8; font-weight: 600; font-size: 0.92rem; }
 
-    /* FM Badges */
-    .badge-pos {
-        display: inline-block;
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        margin-right: 6px;
-        background: #0284c7;
-        color: #ffffff;
-    }
-    .badge-role {
-        display: inline-block;
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-size: 0.75rem;
-        font-weight: 700;
-        background: #334155;
-        color: #f1f5f9;
-    }
-
-    /* Coach Swap Delta Box */
-    .delta-card {
-        background: #111a26;
-        border: 1px solid #2a3c54;
-        border-left: 4px solid #f59e0b;
-        border-radius: 8px;
+    /* Performance Analyst Diff Box */
+    .pa-diff-card {
+        background: #101620;
+        border: 1px solid #233044;
+        border-radius: 6px;
         padding: 16px;
-        margin-top: 15px;
+        margin-top: 14px;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Load Datasets
+# Load Databases
 @st.cache_data
 def load_all_databases():
     aggregator = DataAggregator()
     squad_df = aggregator.load_squad()
     prospects_df = aggregator.load_prospects()
-    legends_df = aggregator.load_legends()
-    return squad_df, prospects_df, legends_df
+    past_df = aggregator.load_past_internationals()
+    return squad_df, prospects_df, past_df
 
 try:
-    squad_df, prospects_df, legends_df = load_all_databases()
+    squad_df, prospects_df, past_df = load_all_databases()
 except Exception as e:
-    st.error(f"Error loading football databases: {e}")
+    st.error(f"Error initializing performance database: {e}")
     st.stop()
 
-# Header Navigation Bar
-st.markdown("""
-<div class="fm-navbar">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <div>
-            <div class="fm-title">🐅 HARIMAU MALAYA // PRO TACTICAL WORKBENCH</div>
-            <div class="fm-subtitle">National Squad Analytics • Tactical Performance Analyst Engine • Heritage & Historical Benchmark Scout</div>
-        </div>
-        <div style="display: flex; gap: 8px;">
-            <span class="badge-pos">FM26 ENGINE</span>
-            <span class="badge-role">PERFORMANCE ANALYST MODE</span>
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
-
-# Sidebar
-st.sidebar.markdown("### 📋 TACTICAL WORKBENCH")
-mode_selection = st.sidebar.radio(
-    "Navigation Menu:",
-    [
-        "🏟️ Tactical Board & Coach XI Builder",
-        "👤 Player Profile & Heatmap",
-        "🔄 Performance Analyst (PA) Swap Diff",
-        "🏛️ Historical Legends & Benchmarks",
-        "🌍 Global Prospects & Heritage Pool",
-        "📊 26/27 Minutes & Macro Data"
-    ]
-)
-
-st.sidebar.markdown("---")
-st.sidebar.markdown("#### ⚡ SQUAD OVERVIEW")
-st.sidebar.write(f"**ASEAN Cup Squad:** {len(squad_df)} players")
-st.sidebar.write(f"**Prospects Database:** {len(prospects_df)} players")
-st.sidebar.write(f"**Past Benchmark Legends:** {len(legends_df)} icons")
-st.sidebar.markdown("---")
-st.sidebar.caption("⚽ Developed with FotMob, SofaScore, and Transfermarkt verified data pipelines.")
-
-# Helper function to get player photo
-def get_photo_url(p: dict) -> str:
+# Helper function to get headshot URL
+def get_headshot(p: dict) -> str:
     url = p.get("photo_url", "")
     if url and "default" not in url:
         return url
     return "https://images.fotmob.com/image_resources/playerimages/1152012.png"
 
-# Helper function to format attribute value with FM color class
-def format_fm_val(val: int) -> str:
-    if val >= 85:
-        return f'<span class="attr-val-elite">{val}</span>'
-    elif val >= 75:
-        return f'<span class="attr-val-good">{val}</span>'
+# Helper function for score formatting
+def format_score(val: int) -> str:
+    if val >= 82:
+        return f'<span class="metric-score-high">{val}</span>'
+    elif val >= 74:
+        return f'<span class="metric-score-mid">{val}</span>'
     else:
-        return f'<span class="attr-val-avg">{val}</span>'
+        return f'<span class="metric-score-low">{val}</span>'
+
+# Editorial Header
+st.markdown("""
+<div class="masthead">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+            <div class="masthead-title">HARIMAU MALAYA // PERFORMANCE INTELLIGENCE HUB</div>
+            <div class="masthead-subtitle">National Squad Analytics • Tactical Selection Workbench • Scouting Radar (2023–2026 Cycle)</div>
+        </div>
+        <div style="display: flex; gap: 8px;">
+            <span class="tag tag-gold">26/27 VERIFIED MINUTES</span>
+            <span class="tag tag-blue">OPTA / FOTMOB METRICS</span>
+            <span class="tag tag-slate">PERFORMANCE ANALYST</span>
+        </div>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+# Sidebar Navigation
+st.sidebar.markdown("### PERFORMANCE SUITE")
+selected_view = st.sidebar.radio(
+    "Navigation Modules:",
+    [
+        "Tactical Board & Starting XI Customizer",
+        "Player Profile & Action Heatmap",
+        "Squad Depth & Substitution Delta (PA)",
+        "Recent Internationals (2023–2026 Cycle)",
+        "National Prospect & Heritage Scouting",
+        "Performance Data & Minutes Tracker"
+    ]
+)
+
+st.sidebar.markdown("---")
+st.sidebar.markdown("#### SQUAD METRICS SUMMARY")
+st.sidebar.write(f"• **Active 2026 ASEAN Squad:** {len(squad_df)} players")
+st.sidebar.write(f"• **Recent Internationals (3Y):** {len(past_df)} players")
+st.sidebar.write(f"• **Scouted Prospects Pool:** {len(prospects_df)} players")
+st.sidebar.markdown("---")
+st.sidebar.caption("Data sources: Transfermarkt verified playing minutes, FotMob match logs, SofaScore tactical radars.")
 
 
 # ==============================================================================
-# TAB 1: TACTICAL BOARD & COACH XI BUILDER
+# VIEW 1: TACTICAL BOARD & STARTING XI CUSTOMIZER
 # ==============================================================================
-if mode_selection == "🏟️ Tactical Board & Coach XI Builder":
-    st.markdown("### 🏟️ Tactical Board & Dynamic Starting XI Customizer")
-    st.write("Customize your starting XI, adjust positions in real-time, and monitor team tactical balance indices like a real Head Coach or Performance Analyst.")
+if selected_view == "Tactical Board & Starting XI Customizer":
+    st.markdown("### Tactical Board & Starting XI Customizer")
+    st.caption("Interactively build the starting XI, test tactical positioning, and monitor real-time team balance metrics.")
 
     tact_col1, tact_col2 = st.columns([1.35, 1])
 
-    # Default starting XI pool
+    # Default XI
     default_names = [
         "Syihan Hazmi", "La'Vere Corbin-Ong", "Brad Tapp", "Ubaidullah Shamsul", "Dion Cools",
         "Hong Wan", "Nooa Laine", "Stuart Wilkin", "Faisal Halim", "Bérgson", "Arif Aiman"
     ]
-    all_player_names = squad_df["name"].tolist() + prospects_df["name"].tolist()
+    # Build complete selection pool: Squad + Recent Internationals + Prospects
+    all_players_pool = squad_df["name"].tolist() + past_df["name"].tolist() + prospects_df["name"].tolist()
+    all_players_pool = list(dict.fromkeys(all_players_pool))
 
     with tact_col2:
-        st.markdown("#### 🛠️ Team Sheet & Positional Adjustments")
-        formation = st.selectbox("Select Tactical System:", ["4-3-3", "3-4-3", "4-2-3-1"], index=0)
+        st.markdown("#### Positional Lineup Configuration")
+        formation = st.selectbox("Tactical Formation:", ["4-3-3", "3-4-3", "4-2-3-1"], index=0)
 
-        # Slot selectors
         slots_433 = [
             ("GK", "Goalkeeper", 0),
             ("LB", "Left-Back", 1),
@@ -285,169 +266,170 @@ if mode_selection == "🏟️ Tactical Board & Coach XI Builder":
             ("LCM", "Left Central Midfield", 6),
             ("RCM", "Right Central Midfield", 7),
             ("LW", "Left Winger", 8),
-            ("ST", "Striker / Centre-Forward", 9),
+            ("CF", "Centre-Forward", 9),
             ("RW", "Right Winger", 10),
         ]
 
         starting_xi_players = []
         slot_cols = st.columns(2)
-        
+
         for idx, (role_code, role_desc, default_idx) in enumerate(slots_433):
             col_target = slot_cols[idx % 2]
             with col_target:
-                def_name = default_names[default_idx] if default_idx < len(default_names) else all_player_names[0]
-                def_pos_idx = all_player_names.index(def_name) if def_name in all_player_names else 0
-                
+                def_name = default_names[default_idx] if default_idx < len(default_names) else all_players_pool[0]
+                def_pos_idx = all_players_pool.index(def_name) if def_name in all_players_pool else 0
+
                 chosen_name = st.selectbox(
                     f"[{role_code}] {role_desc}:",
-                    options=all_player_names,
+                    options=all_players_pool,
                     index=def_pos_idx,
-                    key=f"slot_{idx}"
+                    key=f"xi_slot_{idx}"
                 )
-                
+
                 # Fetch player record
-                match_squad = squad_df[squad_df["name"] == chosen_name]
-                if not match_squad.empty:
-                    starting_xi_players.append(match_squad.iloc[0].to_dict())
-                else:
-                    match_pros = prospects_df[prospects_df["name"] == chosen_name]
-                    if not match_pros.empty:
-                        starting_xi_players.append(match_pros.iloc[0].to_dict())
+                match = squad_df[squad_df["name"] == chosen_name]
+                if match.empty:
+                    match = past_df[past_df["name"] == chosen_name]
+                if match.empty:
+                    match = prospects_df[prospects_df["name"] == chosen_name]
+                
+                if not match.empty:
+                    starting_xi_players.append(match.iloc[0].to_dict())
 
     with tact_col1:
-        # Render Pitch Board
         pitch_fig = draw_tactical_pitch(formation=formation, starting_xi_players=starting_xi_players)
         st.plotly_chart(pitch_fig, use_container_width=True)
 
-    # Real-Time Tactical Balance Metrics (PA Engine)
-    st.markdown("#### 📊 Real-Time Team Tactical Balance Indices (Performance Analyst)")
+    # Real-Time Team Tactical Balance Indices
+    st.markdown("#### Team Tactical Balance Indices (Performance Analyst Engine)")
     balance = calculate_team_tactical_balance(starting_xi_players)
 
     kpi1, kpi2, kpi3, kpi4, kpi5, kpi6 = st.columns(6)
     with kpi1:
         st.markdown(f"""
-        <div class="kpi-tile">
-            <div class="kpi-label">Attacking Threat</div>
-            <div class="kpi-num">{balance['attacking_threat']}</div>
-            <div class="kpi-hint">Finishing & Vision</div>
+        <div class="stat-card">
+            <div class="stat-card-label">Attacking Threat</div>
+            <div class="stat-card-value">{balance['attacking_threat']}</div>
+            <div class="stat-card-sub">Finishing & Shot Volume</div>
         </div>
         """, unsafe_allow_html=True)
     with kpi2:
         st.markdown(f"""
-        <div class="kpi-tile">
-            <div class="kpi-label">Defensive Solidity</div>
-            <div class="kpi-num">{balance['defensive_solidity']}</div>
-            <div class="kpi-hint">Duel & Shielding</div>
+        <div class="stat-card">
+            <div class="stat-card-label">Defensive Solidity</div>
+            <div class="stat-card-value">{balance['defensive_solidity']}</div>
+            <div class="stat-card-sub">Duels & Rest-Defense</div>
         </div>
         """, unsafe_allow_html=True)
     with kpi3:
         st.markdown(f"""
-        <div class="kpi-tile">
-            <div class="kpi-label">Pressing Index</div>
-            <div class="kpi-num">{balance['pressing_intensity']}</div>
-            <div class="kpi-hint">Work Rate & Stamina</div>
+        <div class="stat-card">
+            <div class="stat-card-label">Pressing Index</div>
+            <div class="stat-card-value">{balance['pressing_intensity']}</div>
+            <div class="stat-card-sub">Work Rate & Regains</div>
         </div>
         """, unsafe_allow_html=True)
     with kpi4:
         st.markdown(f"""
-        <div class="kpi-tile">
-            <div class="kpi-label">Passing Fluidity</div>
-            <div class="kpi-num">{balance['passing_fluidity']}</div>
-            <div class="kpi-hint">Progressive Build-up</div>
+        <div class="stat-card">
+            <div class="stat-card-label">Build-Up Fluidity</div>
+            <div class="stat-card-value">{balance['passing_fluidity']}</div>
+            <div class="stat-card-sub">Progressive Passing</div>
         </div>
         """, unsafe_allow_html=True)
     with kpi5:
         st.markdown(f"""
-        <div class="kpi-tile">
-            <div class="kpi-label">Aerial Dominance</div>
-            <div class="kpi-num">{balance['aerial_dominance']}</div>
-            <div class="kpi-hint">Box Heading Threat</div>
+        <div class="stat-card">
+            <div class="stat-card-label">Aerial Dominance</div>
+            <div class="stat-card-value">{balance['aerial_dominance']}</div>
+            <div class="stat-card-sub">Box Clearance Success</div>
         </div>
         """, unsafe_allow_html=True)
     with kpi6:
         st.markdown(f"""
-        <div class="kpi-tile">
-            <div class="kpi-label">Starting XI Age</div>
-            <div class="kpi-num">{balance['average_age']}</div>
-            <div class="kpi-hint">Years Average</div>
+        <div class="stat-card">
+            <div class="stat-card-label">Average XI Age</div>
+            <div class="stat-card-value">{balance['average_age']}</div>
+            <div class="stat-card-sub">Squad Age Profile</div>
         </div>
         """, unsafe_allow_html=True)
 
 
 # ==============================================================================
-# TAB 2: PLAYER PROFILE & HEATMAP
+# VIEW 2: PLAYER PROFILE & ACTION HEATMAP
 # ==============================================================================
-elif mode_selection == "👤 Player Profile & Heatmap":
-    st.markdown("### 👤 Player Profile & Tactical Action Heatmap")
+elif selected_view == "Player Profile & Action Heatmap":
+    st.markdown("### Player Performance Intelligence & Action Heatmap")
 
-    # Combine squad and prospects for inspection
-    combined_all = pd.concat([squad_df, prospects_df], ignore_index=True)
+    # Combine active squad, past internationals, and prospects
+    combined_all = pd.concat([squad_df, past_df, prospects_df], ignore_index=True)
     p_name = st.selectbox("Select Player:", options=combined_all["name"].tolist(), index=16) # Arif Aiman
 
     p_data = combined_all[combined_all["name"] == p_name].iloc[0].to_dict()
-    photo_url = get_photo_url(p_data)
+    headshot = get_headshot(p_data)
     archetype = get_player_archetype(p_data["position"], p_data.get("attributes", {}))
     scout_score = calculate_scouting_score(p_data)
 
-    # FM Profile Card with Photo
+    # Editorial Profile Card
     st.markdown(f"""
-    <div class="fm-profile-card">
-        <img src="{photo_url}" class="fm-avatar-img" onerror="this.onerror=null; this.src='https://images.fotmob.com/image_resources/playerimages/1152012.png';">
+    <div class="profile-card">
+        <img src="{headshot}" class="player-headshot" onerror="this.onerror=null; this.src='https://images.fotmob.com/image_resources/playerimages/1152012.png';">
         <div style="flex-grow: 1;">
             <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                 <div>
-                    <h2 class="fm-player-name">{p_data['full_name']}</h2>
+                    <h2 class="player-name-heading">{p_data['full_name']}</h2>
                     <div style="margin: 6px 0;">
-                        <span class="badge-pos">{p_data['position']}</span>
-                        <span class="badge-role">{p_data['club']} ({p_data['league']})</span>
-                        <span class="badge-role">Archetype: {archetype}</span>
+                        <span class="tag tag-gold">{p_data['position']}</span>
+                        <span class="tag tag-blue">{p_data['club']} ({p_data['league']})</span>
+                        <span class="tag tag-slate">Archetype: {archetype}</span>
                     </div>
-                    <div class="fm-player-meta">
-                        Age: <strong>{p_data['age']}</strong> | Foot: <strong>{p_data.get('preferred_foot', 'Right')}</strong> | Height: <strong>{p_data['height']} cm</strong> | Market Value: <strong>€{p_data.get('market_value_eur', 0):,}</strong>
+                    <div class="player-meta-line">
+                        Age: <strong>{p_data['age']}</strong> | Foot: <strong>{p_data.get('preferred_foot', 'Right')}</strong> | Height: <strong>{p_data.get('height', 178)} cm</strong> | 26/27 Mins: <strong>{p_data.get('minutes_26_27', 0)}'</strong> | Value: <strong>€{p_data.get('market_value_eur', 0):,}</strong>
                     </div>
                 </div>
-                <div style="text-align: right;">
-                    <div style="font-size: 0.72rem; color: #64748b; text-transform: uppercase;">Scouting Readiness</div>
-                    <div style="font-size: 2.2rem; font-weight: 800; color: #00f2fe;">{scout_score}</div>
-                    <div style="font-size: 0.72rem; color: #00ff87;">FM Index / 100</div>
+                <div style="text-align: right; background: rgba(0,0,0,0.3); padding: 8px 16px; border-radius: 6px; border: 1px solid #334155;">
+                    <div style="font-size: 0.72rem; color: #94a3b8; text-transform: uppercase;">Performance Rating</div>
+                    <div style="font-size: 2rem; font-weight: 800; color: #facc15;">{scout_score}</div>
+                    <div style="font-size: 0.7rem; color: #10b981;">Index / 100</div>
                 </div>
             </div>
         </div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 3-Column FM Layout: Attributes Grid | Radar Profile | Heatmap
-    col_attr, col_radar, col_heat = st.columns([1, 1.2, 1.4])
+    col_metrics, col_radar, col_heatmap = st.columns([1, 1.2, 1.4])
 
-    with col_attr:
-        st.markdown("#### ⚡ FM Attribute Matrix")
+    with col_metrics:
+        st.markdown("#### Performance Metrics")
         attrs = p_data.get("attributes", {})
         if attrs:
             for k, v in attrs.items():
                 st.markdown(f"""
-                <div class="attr-box">
-                    <span class="attr-name">{k}</span>
-                    {format_fm_val(v)}
+                <div class="metric-cell">
+                    <span class="metric-name">{k}</span>
+                    {format_score(v)}
                 </div>
                 """, unsafe_allow_html=True)
-        else:
-            st.info("Attributes standard baseline loaded.")
 
-        st.markdown("#### 🎯 Role Suitability")
-        st.markdown(f"⭐ **{archetype}**: `94% Familiarity`")
-        st.markdown(f"⭐ **Secondary Role**: `85% Familiarity`")
+        st.markdown("#### Key Per-90 Data")
+        if "p90_metrics" in p_data:
+            for k, v in p_data["p90_metrics"].items():
+                st.write(f"• **{k.replace('_', ' ').title()}:** {v}")
+        else:
+            st.write(f"• **Pass Accuracy:** {p_data.get('pass_acc_pct', 82.5)}%")
+            st.write(f"• **Key Passes / 90:** {p_data.get('key_passes_p90', 1.8)}")
 
     with col_radar:
-        st.markdown("#### 🕸️ Attribute Polygon")
-        radar_fig = create_attribute_radar(p_data, title=f"Polygon: {p_data['name']}")
+        st.markdown("#### Attribute Polygon Radar")
+        radar_fig = create_attribute_radar(p_data, title=f"Radar: {p_data['name']}")
         st.plotly_chart(radar_fig, use_container_width=True)
 
         if "recent_form" in p_data:
             form_fig = create_form_trend_chart(p_data["recent_form"], p_data["name"])
             st.plotly_chart(form_fig, use_container_width=True)
 
-    with col_heat:
-        st.markdown("#### 🔥 Tactical Touch & Action Heatmap (SofaScore / WhoScored)")
+    with col_heatmap:
+        st.markdown("#### 2D Touch & Action Density Heatmap")
         heat_fig, zones = generate_player_heatmap(
             p_data["name"],
             p_data["position"],
@@ -455,8 +437,7 @@ elif mode_selection == "👤 Player Profile & Heatmap":
         )
         st.plotly_chart(heat_fig, use_container_width=True)
 
-        # Tactical Zone Breakdown
-        st.markdown("##### 📍 Positional Thirds & Flank Density")
+        st.markdown("##### Positional Field Distribution")
         z1, z2, z3 = st.columns(3)
         with z1:
             st.write(f"🛡️ **Def 3rd:** {zones['def_third']}%")
@@ -470,61 +451,58 @@ elif mode_selection == "👤 Player Profile & Heatmap":
 
 
 # ==============================================================================
-# TAB 3: PERFORMANCE ANALYST (PA) SWAP DIFF
+# VIEW 3: SQUAD DEPTH & SUBSTITUTION DELTA (PA WORKBENCH)
 # ==============================================================================
-elif mode_selection == "🔄 Performance Analyst (PA) Swap Diff":
-    st.markdown("### 🔄 Performance Analyst (PA) Swap & Substitution Delta")
-    st.write("Analyze player swaps and tactical changes side-by-side. Measure exact attribute deltas and tactical consequences for the team.")
+elif selected_view == "Squad Depth & Substitution Delta (PA)":
+    st.markdown("### Performance Analyst (PA) Substitution & Call-Up Delta")
+    st.caption("Evaluate player swaps and squad rotation options side-by-side to understand statistical gains vs structural trade-offs.")
 
-    all_names = squad_df["name"].tolist() + prospects_df["name"].tolist()
+    combined = pd.concat([squad_df, past_df, prospects_df], ignore_index=True)
+    all_names = combined["name"].tolist()
 
     col_s1, col_s2 = st.columns(2)
     with col_s1:
-        p_out_name = st.selectbox("Player OUT (Current Starter):", options=all_names, index=17) # Faisal Halim
+        p_out_name = st.selectbox("Player OUT (Incumbent Starter):", options=all_names, index=17) # Faisal Halim
     with col_s2:
-        p_in_name = st.selectbox("Player IN (Replacement / Prospect):", options=all_names, index=20) # Fergus Tierney
+        p_in_name = st.selectbox("Player IN (Call-Up / Rotation Option):", options=all_names, index=20) # Fergus Tierney
 
-    combined = pd.concat([squad_df, prospects_df], ignore_index=True)
     p_out = combined[combined["name"] == p_out_name].iloc[0].to_dict()
     p_in = combined[combined["name"] == p_in_name].iloc[0].to_dict()
 
-    # Calculate Tactical Delta
-    swap_analysis = analyze_player_swap(p_out, p_in)
+    swap_data = analyze_player_swap(p_out, p_in)
 
-    # Side-by-Side Visual Cards
     card1, card2 = st.columns(2)
     with card1:
         st.markdown(f"""
-        <div class="fm-profile-card">
-            <img src="{get_photo_url(p_out)}" class="fm-avatar-img">
+        <div class="profile-card">
+            <img src="{get_headshot(p_out)}" class="player-headshot">
             <div>
-                <span class="badge-role" style="background: #e11d48;">SUB OUT</span>
+                <span class="tag tag-slate" style="color: #ef4444; border-color: #ef4444;">STARTER OUT</span>
                 <h3 style="color: #ffffff; margin: 4px 0;">{p_out['name']}</h3>
-                <div class="fm-player-meta">{p_out['position']} | {p_out['club']} | 26/27 Mins: {p_out.get('minutes_26_27', 0)}'</div>
+                <div class="player-meta-line">{p_out['position']} | {p_out['club']} | 26/27 Mins: {p_out.get('minutes_26_27', 0)}'</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
     with card2:
         st.markdown(f"""
-        <div class="fm-profile-card">
-            <img src="{get_photo_url(p_in)}" class="fm-avatar-img">
+        <div class="profile-card">
+            <img src="{get_headshot(p_in)}" class="player-headshot">
             <div>
-                <span class="badge-role" style="background: #10b981;">SUB IN</span>
+                <span class="tag tag-slate" style="color: #10b981; border-color: #10b981;">SUB IN</span>
                 <h3 style="color: #ffffff; margin: 4px 0;">{p_in['name']}</h3>
-                <div class="fm-player-meta">{p_in['position']} | {p_in['club']} | 26/27 Mins: {p_in.get('minutes_26_27', 0)}'</div>
+                <div class="player-meta-line">{p_in['position']} | {p_in['club']} | 26/27 Mins: {p_in.get('minutes_26_27', 0)}'</div>
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-    # Overlaid Comparison Radar
     radar_col, delta_col = st.columns([1.1, 1])
     with radar_col:
         comp_radar = create_comparison_radar(p_out, p_in)
         st.plotly_chart(comp_radar, use_container_width=True)
 
     with delta_col:
-        st.markdown("#### ⚡ Attribute Delta Matrix (Player IN vs Player OUT)")
-        for attr, diff in swap_analysis["deltas"].items():
+        st.markdown("#### Attribute Delta Variance Matrix (Player IN - Player OUT)")
+        for attr, diff in swap_data["deltas"].items():
             if diff > 0:
                 diff_str = f'<strong style="color: #10b981;">+{diff}</strong>'
             elif diff < 0:
@@ -533,78 +511,75 @@ elif mode_selection == "🔄 Performance Analyst (PA) Swap Diff":
                 diff_str = '<span style="color: #94a3b8;">0</span>'
 
             st.markdown(f"""
-            <div class="attr-box">
-                <span class="attr-name">{attr}</span>
+            <div class="metric-cell">
+                <span class="metric-name">{attr}</span>
                 <span>{diff_str}</span>
             </div>
             """, unsafe_allow_html=True)
 
-    # Tactical Pros and Cons Report
-    st.markdown("#### 📋 Performance Analyst Tactical Briefing")
+    # Tactical Briefing
+    st.markdown("#### Performance Analyst Briefing")
     adv_col, trade_col = st.columns(2)
     with adv_col:
-        st.success("**Tactical Advantages Gained:**\n\n" + "\n\n".join([f"• {a}" for a in swap_analysis["advantages"]]))
+        st.success("**Tactical Advantages Gained:**\n\n" + "\n\n".join([f"• {a}" for a in swap_data["advantages"]]))
     with trade_col:
-        st.warning("**Tactical Trade-Offs & Concessions:**\n\n" + "\n\n".join([f"• {t}" for t in swap_analysis["tradeoffs"]]))
+        st.warning("**Tactical Trade-Offs & Concessions:**\n\n" + "\n\n".join([f"• {t}" for t in swap_data["tradeoffs"]]))
 
 
 # ==============================================================================
-# TAB 4: HISTORICAL LEGENDS & BENCHMARKS
+# VIEW 4: RECENT INTERNATIONALS (2023–2026 CYCLE)
 # ==============================================================================
-elif mode_selection == "🏛️ Historical Legends & Benchmarks":
-    st.markdown("### 🏛️ Historical Legends & Benchmark Icons")
-    st.write("Compare contemporary Harimau Malaya stars against Malaysian football legends and all-time icons.")
+elif selected_view == "Recent Internationals (2023–2026 Cycle)":
+    st.markdown("### Recent Internationals (2023–2026 Cycle)")
+    st.write("Tracking senior players who represented Malaysia over the last 3 years (AFC Asian Cup Qatar, World Cup Qualifiers, Merdeka Cup) who remain eligible for national team selection.")
 
-    leg_col1, leg_col2 = st.columns([1, 1.2])
+    filter_pos = st.selectbox(
+        "Filter by Position Category:",
+        ["All"] + list(past_df["position_category"].unique())
+    )
 
-    with leg_col1:
-        chosen_legend = st.selectbox(
-            "Select Benchmark Legend:",
-            options=legends_df["name"].tolist(),
-            index=0 # Mokhtar Dahari
-        )
-        leg_data = legends_df[legends_df["name"] == chosen_legend].iloc[0].to_dict()
+    p_list = past_df.copy()
+    if filter_pos != "All":
+        p_list = p_list[p_list["position_category"] == filter_pos]
 
-        st.markdown(f"""
-        <div class="fm-profile-card">
-            <div>
-                <span class="badge-pos">{leg_data['era']}</span>
-                <h2 style="color: #f59e0b; margin: 4px 0;">{leg_data['full_name']}</h2>
-                <div class="fm-player-meta">
-                    Position: <strong>{leg_data['position']}</strong> | Peak Club: <strong>{leg_data['club_peak']}</strong>
-                </div>
-                <div style="margin-top: 8px;">
-                    Caps: <strong style="color: #00f2fe;">{leg_data['caps']}</strong> | International Goals: <strong style="color: #00ff87;">{leg_data['goals']}</strong>
+    st.markdown(f"**Found {len(p_list)} senior internationals in active pool:**")
+
+    for idx, p in p_list.iterrows():
+        c_left, c_right = st.columns([1.3, 1])
+        with c_left:
+            st.markdown(f"""
+            <div class="profile-card">
+                <img src="{get_headshot(p)}" class="player-headshot">
+                <div>
+                    <div style="display: flex; gap: 6px; align-items: center;">
+                        <span class="tag tag-gold">{p['position']}</span>
+                        <span class="tag tag-blue">{p['club']}</span>
+                        <span class="tag tag-slate">{p['caps']} Caps ({p['goals']} Goals)</span>
+                    </div>
+                    <h3 style="color: #ffffff; margin: 6px 0 2px 0;">{p['full_name']}</h3>
+                    <p style="color: #64748b; font-size: 0.8rem; margin-bottom: 6px;">Last Represented: {p.get('last_represented', '2024')}</p>
+                    <p style="color: #cbd5e1; font-size: 0.86rem; margin: 0;">{p['scouting_summary']}</p>
                 </div>
             </div>
-        </div>
-        """, unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
+        with c_right:
+            st.markdown(f"**Market Value:** `€{p.get('market_value_eur', 0):,}` | **26/27 Mins:** `{p.get('minutes_26_27', 0)}'`")
+            if "p90_metrics" in p:
+                for k, v in p["p90_metrics"].items():
+                    st.write(f"• **{k.replace('_', ' ').title()}:** {v}")
 
-        st.info(leg_data["scouting_summary"])
-
-    with leg_col2:
-        st.markdown("#### ⚔️ Compare with Active Harimau Malaya Star")
-        active_comp = st.selectbox(
-            "Select Current Player to Compare with Legend:",
-            options=squad_df["name"].tolist(),
-            index=19 # Bérgson or Arif Aiman
-        )
-        active_data = squad_df[squad_df["name"] == active_comp].iloc[0].to_dict()
-
-        # Format attributes for comparison
-        leg_radar = create_comparison_radar(leg_data, active_data)
-        st.plotly_chart(leg_radar, use_container_width=True)
-
-    # Full Legends Roster Table
-    st.markdown("#### 📜 All-Time Legends Benchmark Directory")
+    # Roster Table
+    st.markdown("#### Complete 3-Year Internationals Register")
     st.dataframe(
-        legends_df[["name", "era", "caps", "goals", "position", "club_peak"]].rename(columns={
-            "name": "Legend",
-            "era": "Era",
-            "caps": "Official Caps",
-            "goals": "Goals",
+        past_df[["name", "position", "club", "caps", "goals", "last_represented", "minutes_26_27", "market_value_eur"]].rename(columns={
+            "name": "Player",
             "position": "Position",
-            "club_peak": "Peak Club"
+            "club": "Club",
+            "caps": "Caps",
+            "goals": "Goals",
+            "last_represented": "Last Campaign",
+            "minutes_26_27": "26/27 Mins",
+            "market_value_eur": "Market Value (€)"
         }),
         hide_index=True,
         use_container_width=True
@@ -612,19 +587,19 @@ elif mode_selection == "🏛️ Historical Legends & Benchmarks":
 
 
 # ==============================================================================
-# TAB 5: GLOBAL PROSPECTS & HERITAGE POOL
+# VIEW 5: NATIONAL PROSPECT & HERITAGE SCOUTING
 # ==============================================================================
-elif mode_selection == "🌍 Global Prospects & Heritage Pool":
-    st.markdown("### 🌍 Global Prospects & Heritage Scouting Database")
-    st.write("Tracking domestic U23 starlets, emerging talents, and prospective Malaysian heritage/diaspora players across the globe.")
+elif selected_view == "National Prospect & Heritage Scouting":
+    st.markdown("### National Prospect & Heritage Scouting Database")
+    st.write("Tracking emerging U23 domestic talents in the Malaysia Super League as well as prospective diaspora/heritage players abroad.")
 
     f_col1, f_col2, f_col3 = st.columns(3)
     with f_col1:
-        elig_filter = st.selectbox("Eligibility Filter:", ["All"] + list(prospects_df["eligibility_type"].unique()))
+        elig_filter = st.selectbox("Eligibility Classification:", ["All"] + list(prospects_df["eligibility_type"].unique()))
     with f_col2:
-        pos_filter = st.selectbox("Position Filter:", ["All"] + list(prospects_df["position_category"].unique()))
+        pos_filter = st.selectbox("Position:", ["All"] + list(prospects_df["position_category"].unique()))
     with f_col3:
-        min_idx = st.slider("Minimum Readiness Index:", 60, 95, 75)
+        min_idx = st.slider("Minimum Scouting Readiness Index:", 60, 95, 75)
 
     p_filtered = prospects_df.copy()
     if elig_filter != "All":
@@ -639,12 +614,12 @@ elif mode_selection == "🌍 Global Prospects & Heritage Pool":
         card_l, card_r = st.columns([1.3, 1])
         with card_l:
             st.markdown(f"""
-            <div class="fm-profile-card">
+            <div class="profile-card">
                 <div>
-                    <div style="display: flex; gap: 8px; align-items: center;">
-                        <span class="badge-pos">{p['position']}</span>
-                        <span class="badge-role">{p['eligibility_type']}</span>
-                        <span class="badge-role">{p['club']} ({p['league']})</span>
+                    <div style="display: flex; gap: 6px; align-items: center;">
+                        <span class="tag tag-gold">{p['position']}</span>
+                        <span class="tag tag-blue">{p['eligibility_type']}</span>
+                        <span class="tag tag-slate">{p['club']} ({p['league']})</span>
                     </div>
                     <h3 style="color: #ffffff; margin: 8px 0 4px 0;">{p['name']} ({p['age']} y/o)</h3>
                     <p style="color: #cbd5e1; font-size: 0.88rem; margin: 0;">{p['scouting_summary']}</p>
@@ -652,23 +627,23 @@ elif mode_selection == "🌍 Global Prospects & Heritage Pool":
             </div>
             """, unsafe_allow_html=True)
         with card_r:
-            st.markdown(f"**Scouting Readiness:** `{p['readiness_index']} / 100` | **Market Value:** `€{p.get('market_value_eur', 0):,}`")
-            # Mini attributes progress
+            st.markdown(f"**Readiness Index:** `{p['readiness_index']} / 100` | **Market Value:** `€{p.get('market_value_eur', 0):,}`")
             p_attrs = p.get("attributes", {})
             for k in list(p_attrs.keys())[:3]:
                 st.write(f"• **{k}**: {p_attrs[k]}")
 
 
 # ==============================================================================
-# TAB 6: 26/27 MINUTES & MACRO DATA
+# VIEW 6: PERFORMANCE DATA & MINUTES TRACKER
 # ==============================================================================
-elif mode_selection == "📊 26/27 Minutes & Macro Data":
-    st.markdown("### 📊 Verified 2026/27 Season Playing Time & Squad Macro Analytics")
+elif selected_view == "Performance Data & Minutes Tracker":
+    st.markdown("### Verified 2026/27 Playing Time & Macro Performance Analytics")
 
-    m_tab1, m_tab2, m_tab3 = st.tabs(["⏱️ Minutes Leaderboard", "⚽ Goal Contributions", "💰 Age vs Market Value"])
+    m_tab1, m_tab2, m_tab3 = st.tabs(["Playing Time Leaderboard", "Goal Contributions", "Age vs Market Value"])
 
     with m_tab1:
-        st.markdown("#### Official 26/27 Club Minutes (Transfermarkt)")
+        st.markdown("#### Official 2026/27 Club Minutes (Transfermarkt Verified)")
+        st.caption("Cumulative minutes across Malaysia Super League, J1 League, Thai League 1, and Cyprus League.")
         st.plotly_chart(create_minutes_bar_chart(squad_df), use_container_width=True)
 
     with m_tab2:
@@ -681,8 +656,8 @@ elif mode_selection == "📊 26/27 Minutes & Macro Data":
     st.markdown("---")
     csv_bytes = squad_df.to_csv(index=False).encode('utf-8')
     st.download_button(
-        label="📥 Export Full Squad Dataset (CSV)",
+        label="Download Full Squad Performance Dataset (CSV)",
         data=csv_bytes,
-        file_name="harimau_malaya_squad_2627.csv",
+        file_name="harimau_malaya_performance_2627.csv",
         mime="text/csv"
     )

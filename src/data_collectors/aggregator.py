@@ -33,7 +33,7 @@ class DataAggregator:
         return df
 
     def load_prospects(self) -> pd.DataFrame:
-        """Load the comprehensive Malaysian prospects and heritage database."""
+        """Load the comprehensive Malaysian prospects and heritage database (in league and abroad)."""
         path = os.path.join(self.data_dir, "malaysian_prospects.json")
         if not os.path.exists(path):
             raise FileNotFoundError(f"Prospects data not found at {path}")
@@ -43,11 +43,11 @@ class DataAggregator:
             
         return pd.DataFrame(data)
 
-    def load_legends(self) -> pd.DataFrame:
-        """Load historical icons and past national team benchmark players."""
-        path = os.path.join(self.data_dir, "legends_past_players.json")
+    def load_past_internationals(self) -> pd.DataFrame:
+        """Load players who represented Malaysia in the last 3 years cycle (2023-2026)."""
+        path = os.path.join(self.data_dir, "past_internationals_3yrs.json")
         if not os.path.exists(path):
-            raise FileNotFoundError(f"Legends data not found at {path}")
+            raise FileNotFoundError(f"Past internationals data not found at {path}")
         
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -55,14 +55,14 @@ class DataAggregator:
         return pd.DataFrame(data)
 
     def get_all_players_combined(self) -> pd.DataFrame:
-        """Combine national team squad with prospective pool and legends for scouting comparisons."""
+        """Combine national team squad with prospective pool and recent internationals for scouting comparisons."""
         squad = self.load_squad()
         prospects = self.load_prospects()
-        legends = self.load_legends()
+        past = self.load_past_internationals()
         
-        squad["squad_category"] = "Senior National Team (ASEAN Cup 2026)"
-        prospects["squad_category"] = "Prospect / Heritage Pool"
-        legends["squad_category"] = "Historical Legends & Past Icons"
+        squad["squad_category"] = "Current National Squad (ASEAN Cup 2026)"
+        prospects["squad_category"] = "Prospect & Heritage Pool"
+        past["squad_category"] = "Recent Internationals (2023-2026 Cycle)"
         
-        combined = pd.concat([squad, prospects, legends], ignore_index=True)
+        combined = pd.concat([squad, prospects, past], ignore_index=True)
         return combined
