@@ -15,6 +15,16 @@ def main():
 
     master_players = []
     seen_names = set()
+    INELIGIBLE_NAMES = {
+        "mats deijl", "ferdy druijf", "manuel hidalgo", "sem scheperman",
+        "julian bechler", "bérgson", "bergson", "joshua brownhill"
+    }
+
+    def is_ineligible(name_str):
+        if not name_str:
+            return True
+        nl = name_str.lower().strip()
+        return any(ine in nl for ine in INELIGIBLE_NAMES)
 
     # Function to generate avatar URL
     def make_avatar(name):
@@ -24,7 +34,7 @@ def main():
     # Add ASEAN 2026 Squad members
     for p in squad_raw:
         name = p["name"]
-        if name in seen_names:
+        if is_ineligible(name) or name in seen_names:
             continue
         seen_names.add(name)
         p["pool_status"] = "ASEAN Cup 2026 Squad"
@@ -36,7 +46,7 @@ def main():
     # Add Past Internationals
     for p in past_raw:
         name = p["name"]
-        if name in seen_names:
+        if is_ineligible(name) or name in seen_names:
             continue
         seen_names.add(name)
         p["pool_status"] = "Senior International (2023-2026)"
@@ -48,7 +58,7 @@ def main():
     # Add Prospects
     for p in prospects_raw:
         name = p["name"]
-        if name in seen_names:
+        if is_ineligible(name) or name in seen_names:
             continue
         seen_names.add(name)
         p["pool_status"] = "Heritage & Scouting Prospect"
@@ -1780,66 +1790,7 @@ def main():
             "scouting_summary": "Fast transition winger who spearheads Kelantan Darul Naim's breakaways."
         },
 
-        # --- ADDITIONAL OVERSEAS / HERITAGE PROSPECTS ---
-        {
-            "id": 1058,
-            "name": "Sem Scheperman",
-            "full_name": "Sem Scheperman",
-            "age": 23,
-            "dob": "2002-06-24",
-            "height": 188,
-            "position": "Defensive Midfield",
-            "secondary_positions": ["Central Midfield", "Centre-Back"],
-            "position_category": "Midfielder",
-            "preferred_foot": "Right",
-            "club": "Heracles Almelo",
-            "league": "Eredivisie (Netherlands)",
-            "country": "Netherlands / Malaysia",
-            "pool_status": "Heritage & Scouting Prospect",
-            "tier": "European Tier 1 Heritage",
-            "caps": 0,
-            "goals": 0,
-            "market_value_eur": 650000,
-            "minutes_25_26": 1280,
-            "minutes_26_27": 480,
-            "apps_26_27": 6,
-            "goals_26_27": 1,
-            "assists_26_27": 0,
-            "fotmob_rating": 7.15,
-            "sofascore_rating": 7.18,
-            "attributes": {"Pace": 72, "Defending": 84, "Physical": 85, "Passing": 81, "Heading": 83, "Tactical IQ": 84},
-            "p90_metrics": {"tackles_p90": 3.1, "interceptions_p90": 2.2, "pass_acc_pct": 86.8, "duel_win_pct": 67.2},
-            "scouting_summary": "188 cm defensive anchor active in Dutch Eredivisie. Malaysian lineage through grandparents. Towering presence, superb tackle timing, and press-resistant distribution."
-        },
-        {
-            "id": 1059,
-            "name": "Julian Bechler",
-            "full_name": "Julian Bechler",
-            "age": 25,
-            "dob": "2000-02-14",
-            "height": 189,
-            "position": "Goalkeeper",
-            "position_category": "Goalkeeper",
-            "preferred_foot": "Right",
-            "club": "SV Waldhof Mannheim",
-            "league": "3. Liga (Germany)",
-            "country": "Germany / Malaysia",
-            "pool_status": "Heritage & Scouting Prospect",
-            "tier": "European Heritage",
-            "caps": 0,
-            "goals": 0,
-            "market_value_eur": 250000,
-            "minutes_25_26": 1440,
-            "minutes_26_27": 360,
-            "apps_26_27": 4,
-            "clean_sheets_26_27": 2,
-            "saves_p90": 3.6,
-            "fotmob_rating": 7.12,
-            "sofascore_rating": 7.16,
-            "attributes": {"Shot Stopping": 82, "Reflexes": 83, "Handling": 79, "Positioning": 81, "Kicking": 80, "Physical": 83},
-            "p90_metrics": {"save_pct": 79.5, "pass_acc_pct": 77.0, "duel_win_pct": 68.0},
-            "scouting_summary": "German-born goalkeeper with Malaysian maternal heritage. Formed in German academy system with imposing 189 cm frame and elite command."
-        },
+        # --- ADDITIONAL OVERSEAS TALENT ---
         {
             "id": 1060,
             "name": "Allee Putra",

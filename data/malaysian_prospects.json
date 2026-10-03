@@ -163,67 +163,6 @@
     "photo_url": "https://ui-avatars.com/api/?name=Kobe%20Chong&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
   },
   {
-    "id": 106,
-    "name": "Mats Deijl",
-    "full_name": "Mats Deijl",
-    "age": 29,
-    "dob": "1997-07-15",
-    "height": 180,
-    "position": "Right-Back",
-    "secondary_positions": [
-      "Centre-Back"
-    ],
-    "position_category": "Defender",
-    "club": "Go Ahead Eagles",
-    "league": "Eredivisie",
-    "country": "Netherlands",
-    "citizenship": "Netherlands",
-    "eligibility_type": "Heritage (Ancestry Document Verification Pending)",
-    "readiness_index": 92,
-    "market_value_eur": 1200000,
-    "transfermarkt_id": 347891,
-    "attributes": {
-      "Pace": 80,
-      "Defending": 85,
-      "Physical": 82,
-      "Passing": 81,
-      "Tactical Awareness": 88,
-      "Experience": 90
-    },
-    "heatmap_type": "wing_back_right",
-    "scouting_summary": "Captain and established starter in the Dutch Eredivisie. Elite defensive organization and consistent match ratings against top European clubs like Ajax, PSV, and Feyenoord. If documentation clears FIFA criteria, instant starter for Malaysia.",
-    "photo_url": "https://ui-avatars.com/api/?name=Mats%20Deijl&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
-  },
-  {
-    "id": 107,
-    "name": "Ferdy Druijf",
-    "full_name": "Ferdy Druijf",
-    "age": 28,
-    "dob": "1998-03-04",
-    "height": 190,
-    "position": "Centre-Forward",
-    "position_category": "Attacker",
-    "club": "Rapid Vienna / Eredivisie Scouted",
-    "league": "Austrian Bundesliga",
-    "country": "Austria",
-    "citizenship": "Netherlands",
-    "eligibility_type": "Heritage (Maternal Grandparent Heritage Tracked)",
-    "readiness_index": 89,
-    "market_value_eur": 1000000,
-    "transfermarkt_id": 361109,
-    "attributes": {
-      "Pace": 74,
-      "Finishing": 87,
-      "Aerial": 89,
-      "Physical": 86,
-      "Heading": 88,
-      "Hold-up Play": 87
-    },
-    "heatmap_type": "target_forward",
-    "scouting_summary": "Towering target man with lethal aerial power and clinical penalty box finishing. Played for AZ Alkmaar and Rapid Vienna in European club competitions. Would provide Harimau Malaya unprecedented physical presence up front.",
-    "photo_url": "https://ui-avatars.com/api/?name=Ferdy%20Druijf&background=1e293b&color=f59e0b&size=150&bold=true&font-size=0.38"
-  },
-  {
     "id": 108,
     "name": "Mukhairi Ajmal",
     "full_name": "Muhammad Mukhairi Ajmal Mahadi",

@@ -2,9 +2,14 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
-def create_minutes_bar_chart(df: pd.DataFrame):
+def create_minutes_bar_chart(df: pd.DataFrame, top_n: int = 25):
     """Horizontal stacked or grouped bar chart of player playing time in 26/27."""
-    df_sorted = df.sort_values(by="minutes_26_27", ascending=True)
+    if top_n and len(df) > top_n:
+        df_sorted = df.sort_values(by="minutes_26_27", ascending=False).head(top_n).sort_values(by="minutes_26_27", ascending=True)
+        title_text = f"Top {top_n} Minutes Played (2026/27 Season)"
+    else:
+        df_sorted = df.sort_values(by="minutes_26_27", ascending=True)
+        title_text = f"Minutes Played (2026/27 Season - {len(df_sorted)} Players)"
 
     fig = go.Figure()
     fig.add_trace(go.Bar(
@@ -13,24 +18,27 @@ def create_minutes_bar_chart(df: pd.DataFrame):
         orientation='h',
         marker=dict(
             color=df_sorted["minutes_26_27"],
-            colorscale=[[0, '#2c3e50'], [0.5, '#f39c12'], [1.0, '#f1c40f']],
+            colorscale=[[0, '#1e293b'], [0.5, '#f59e0b'], [1.0, '#10b981']],
             line=dict(color='#111111', width=1)
         ),
-        text=[f"{m}' ({c})" for m, c in zip(df_sorted["minutes_26_27"], df_sorted["club"])],
+        text=[f"{int(m)}' ({c})" for m, c in zip(df_sorted["minutes_26_27"].fillna(0), df_sorted.get("club", [""] * len(df_sorted)))],
         textposition="outside",
         textfont=dict(color="#ffffff", size=10)
     ))
 
+    calc_height = max(380, min(1200, len(df_sorted) * 24 + 80))
+
     fig.update_layout(
-        title=dict(text="Total Minutes Played (2026/27 Season)", font=dict(color="#f4d03f", size=14)),
+        title=dict(text=title_text, font=dict(color="#f4d03f", size=14)),
         xaxis=dict(title="Minutes", gridcolor="rgba(255,255,255,0.1)", tickfont=dict(color="#cccccc")),
         yaxis=dict(tickfont=dict(color="#ffffff", size=11)),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
         margin=dict(l=120, r=40, t=40, b=40),
-        height=620
+        height=calc_height
     )
     return fig
+
 
 def create_form_trend_chart(ratings: list, player_name: str):
     """Line chart showing match ratings form progression across last 5 matches."""
@@ -61,30 +69,31 @@ def create_form_trend_chart(ratings: list, player_name: str):
     )
     return fig
 
-def create_goal_contributions_chart(df: pd.DataFrame):
+def create_goal_contributions_chart(df: pd.DataFrame, top_n: int = 20):
     """Grouped bar chart for top goal contributors (Goals vs Assists)."""
-    attackers = df[df["goal_contributions_26_27"] > 0].sort_values(by="goal_contributions_26_27", ascending=False)
+    contrib_col = "goal_contributions_26_27" if "goal_contributions_26_27" in df.columns else "goals_26_27"
+    attackers = df[df[contrib_col] > 0].sort_values(by=contrib_col, ascending=False).head(top_n)
     
     if attackers.empty:
-        attackers = df.head(8)
+        attackers = df.head(min(12, len(df)))
 
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=attackers["name"],
-        y=attackers["goals_26_27"],
+        y=attackers["goals_26_27"].fillna(0),
         name="Goals",
-        marker_color="#e74c3c"
+        marker_color="#ef4444"
     ))
     fig.add_trace(go.Bar(
         x=attackers["name"],
-        y=attackers["assists_26_27"],
+        y=attackers["assists_26_27"].fillna(0),
         name="Assists",
-        marker_color="#f1c40f"
+        marker_color="#f59e0b"
     ))
 
     fig.update_layout(
         barmode="stack",
-        title=dict(text="Goal Contributions (Goals + Assists in 26/27)", font=dict(color="#f4d03f", size=14)),
+        title=dict(text=f"Top {len(attackers)} Goal Contributions (Goals + Assists in 26/27)", font=dict(color="#f4d03f", size=14)),
         xaxis=dict(tickfont=dict(color="#ffffff", size=10)),
         yaxis=dict(title="Contributions", gridcolor="rgba(255,255,255,0.1)", tickfont=dict(color="#cccccc")),
         legend=dict(font=dict(color="#ffffff"), orientation="h", y=1.1),
@@ -95,14 +104,22 @@ def create_goal_contributions_chart(df: pd.DataFrame):
     )
     return fig
 
+
 def create_age_value_quadrant(df: pd.DataFrame):
     """Scatter plot mapping Age vs Market Value with quadrant overlays."""
+    df_plot = df.copy()
+    df_plot["age"] = pd.to_numeric(df_plot.get("age", 25), errors="coerce").fillna(25)
+    df_plot["market_value_eur"] = pd.to_numeric(df_plot.get("market_value_eur", 100000), errors="coerce").fillna(100000)
+    df_plot["plot_size"] = pd.to_numeric(df_plot.get("minutes_26_27", 100), errors="coerce").fillna(100)
+    df_plot["plot_size"] = df_plot["plot_size"].apply(lambda m: max(8, min(40, float(m) / 20.0 + 8.0)))
+    df_plot["position_category"] = df_plot.get("position_category", "Midfielder").fillna("Midfielder")
+
     fig = px.scatter(
-        df,
+        df_plot,
         x="age",
         y="market_value_eur",
         color="position_category",
-        size="minutes_26_27",
+        size="plot_size",
         hover_name="name",
         hover_data=["club", "league", "minutes_26_27"],
         text="name",
