@@ -2,8 +2,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
 
-def create_minutes_bar_chart(df: pd.DataFrame, top_n: int = 25):
+def create_minutes_bar_chart(df: pd.DataFrame, *args, **kwargs):
     """Horizontal stacked or grouped bar chart of player playing time in 26/27."""
+    top_n = kwargs.get("top_n", args[0] if len(args) > 0 else 25)
     if top_n and len(df) > top_n:
         df_sorted = df.sort_values(by="minutes_26_27", ascending=False).head(top_n).sort_values(by="minutes_26_27", ascending=True)
         title_text = f"Top {top_n} Minutes Played (2026/27 Season)"
@@ -69,8 +70,9 @@ def create_form_trend_chart(ratings: list, player_name: str):
     )
     return fig
 
-def create_goal_contributions_chart(df: pd.DataFrame, top_n: int = 20):
+def create_goal_contributions_chart(df: pd.DataFrame, *args, **kwargs):
     """Grouped bar chart for top goal contributors (Goals vs Assists)."""
+    top_n = kwargs.get("top_n", args[0] if len(args) > 0 else 20)
     contrib_col = "goal_contributions_26_27" if "goal_contributions_26_27" in df.columns else "goals_26_27"
     attackers = df[df[contrib_col] > 0].sort_values(by=contrib_col, ascending=False).head(top_n)
     

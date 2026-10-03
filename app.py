@@ -725,11 +725,16 @@ elif selected_workspace == "📊 Squad Performance & Minutes Analytics":
 
     with chart_tab1:
         st.markdown("#### Official 2026/27 Club Playing Minutes (Transfermarkt Verified)")
-        st.plotly_chart(create_minutes_bar_chart(chart_df, top_n=25), use_container_width=True)
+        top_mins = chart_df.sort_values(by="minutes_26_27", ascending=False).head(25)
+        st.plotly_chart(create_minutes_bar_chart(top_mins), use_container_width=True)
 
     with chart_tab2:
         st.markdown("#### Direct Goal Contributions (2026/27 Season)")
-        st.plotly_chart(create_goal_contributions_chart(chart_df, top_n=20), use_container_width=True)
+        contrib_c = "goal_contributions_26_27" if "goal_contributions_26_27" in chart_df.columns else "goals_26_27"
+        top_contrib = chart_df[chart_df[contrib_c] > 0].sort_values(by=contrib_c, ascending=False).head(20)
+        if top_contrib.empty:
+            top_contrib = chart_df.head(10)
+        st.plotly_chart(create_goal_contributions_chart(top_contrib), use_container_width=True)
 
     with chart_tab3:
         st.markdown("#### Age Curve vs. Market Value (€) Matrix")
