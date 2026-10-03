@@ -1,128 +1,101 @@
-# 🐅 Harimau Malaya Football Analytics & Scouting Dashboard
+# 🐅 Harimau Malaya Football Analytics & Tactical Workbench
 
-An advanced, multi-tiered football intelligence platform built for the **Malaysia National Football Team (Harimau Malaya)** and the entire prospective Malaysian player universe.
+An immersive, professional football intelligence and tactical analysis platform built for the **Malaysia National Football Team (Harimau Malaya)**, prospective heritage talents, and all-time legendary benchmarks.
 
-This project delivers comprehensive statistical profiling, tactical pitch visualization, per-90 metrics, form progression, and heritage scouting by fusing data from **Transfermarkt**, **FotMob**, and **SofaScore**.
+Designed with an immersive **Football Manager (FM)** dark tactical UI, this system fuses verified data from **Transfermarkt**, **FotMob**, and **SofaScore** into a real-time Head Coach & Performance Analyst (PA) workbench.
 
 ---
 
 ## 🌟 Key Features
 
-### 1. 🏟️ Tactical Squad Overview & Interactive Pitch
-- **Tactical Pitch View**: Visualizes starting XI and depth chart in multiple formations (**4-3-3**, **3-4-3**, **4-2-3-1**).
-- **Verified 2026/27 Playing Time**: Tracks exact cumulative club and national team minutes across the Malaysia Super League, J1 League (Japan), Thai League 1 (Thailand), and Cyprus League.
-- **Squad KPI Banners**: Instant tracking of squad size, overseas player representation, goal contributions, and market values.
+### 1. 🏟️ Tactical Board & Dynamic Starting XI Customizer (Coach Mode)
+- **Interactive Lineup Customizer**: Freely assign and swap any of the 11 starting positions on the pitch (**4-3-3**, **3-4-3**, **4-2-3-1**).
+- **FM-Style Pitch Board**: Deep tactical board with role tokens (`[GK]`, `[LB]`, `[CB]`, `[DM]`, `[IF]`, `[AF]`).
+- **Real-Time Team Tactical Balance Indices**: Automatically calculates live team ratings whenever a player is swapped:
+  - *Attacking Threat* (0–100)
+  - *Defensive Solidity* (0–100)
+  - *Pressing Intensity & Work Rate* (0–100)
+  - *Passing Fluidity & Build-up* (0–100)
+  - *Aerial Dominance* (0–100)
+  - *Average Starting XI Age*
 
-### 2. 👤 Player Deep Dive & Form Progression
-- **Bio & Demographics**: Verified DOB, height, citizenship, preferred foot, and contract expiry.
-- **Form Trend Tracker**: 5-match moving rating curve from FotMob and SofaScore.
-- **Radar Profile**: Multi-attribute polygon chart (Pace, Shooting, Passing, Dribbling, Defending, Physicality).
-- **Per-90 Statistical Percentiles**: Goals/90, Assists/90, Key Passes/90, Duels Won %, and Aerial Dominance.
-- **Tactical Archetype Classifier**: Automatically groups players into roles (e.g. *Inverted Playmaker*, *Deep-Lying Regista*, *Ball-Playing Defender*, *Box-to-Box Engine*).
+### 2. 👤 Player Profile, Face Portraits & 2D Tactical Heatmap
+- **Verified Official Headshots**: Real player face portraits pulled directly from Transfermarkt CDN.
+- **2D Touch & Action Density Heatmaps**: Authentic SofaScore / WhoScored density mesh mapped across pitch thirds:
+  - Defensive 3rd %, Middle 3rd %, Attacking 3rd %.
+  - Left Flank %, Central Channel %, Right Flank %.
+- **FM Attribute Matrix**: Technical, Mental, and Physical attribute scores highlighted in classic Football Manager color tiers (Elite Neon Green, Good Sky Blue, Average Gold).
+- **Form Progression**: 5-match form curve from FotMob against the 7.0 benchmark.
 
-### 3. ⚔️ Head-to-Head Comparison Matrix
-- Compare 2 or 3 players simultaneously (e.g., **Arif Aiman vs Faisal Halim vs Manuel Hidalgo**).
-- Overlaid radar comparisons and side-by-side metric tables.
+### 3. 🔄 Performance Analyst (PA) Swap & Substitution Delta
+- Test substitutions side-by-side (e.g., swapping starter *Faisal Halim* for *Fergus Tierney* or *Luqman Hakim*).
+- **Attribute Delta Matrix ($\Delta$)**: Quantifies exact variances in Pace, Shooting, Passing, Defending, Physicality, and Work Rate.
+- **Automated PA Tactical Briefing**: Outlines tactical advantages gained vs tactical trade-offs and structural concessions.
 
-### 4. 🌍 Heritage & Prospect Scouting System
-- Tracks domestic U23 starlets and eligible Malaysian diaspora/heritage players in Europe, North America, Australia, and Asia.
-- **Eligibility Classification**:
-  - Homegrown / Malaysian Born (e.g. Luqman Hakim, Mukhairi Ajmal, Sikh Izhan, Alif Ikmalrizal)
-  - Heritage - Parents Malaysian (e.g. Wan Kuzain, Wan Kuzri)
-  - Heritage - Grandparents / Ancestry (e.g. Richard Chin, Kobe Chong, Mats Deijl, Ferdy Druijf)
-- **Scouting Readiness Index (1–100)**: Quantitative formula accounting for league coefficient, regular match minutes, recent ratings, and age peak curve.
+### 4. 🏛️ Historical Legends & All-Time Benchmarks
+- Benchmark active Harimau Malaya stars against all-time Malaysian legends:
+  - **Mokhtar Dahari (SuperMokh)** – 89 international goals.
+  - **Soh Chin Ann (Tauke)** – FIFA world-record 195 caps.
+  - **Safiq Rahim** – AFF Suzuki Cup 2010 MVP & set-piece maestro.
+  - **Safee Sali** – AFF 2010 Golden Boot winner.
+  - **Aidil Zafuan**, **Brendan Gan**, **Amri Yahyah**, and **Badhri Radzi**.
 
-### 5. 📈 Macro Analytics & Playing Time Distribution
-- Cumulative minutes leaderboard.
-- Goal contributions distribution (Goals vs Assists).
+### 5. 🌍 Global Prospects & Heritage Scouting Database
+- In-depth scouting tracking for 17 youth starlets and diaspora/heritage prospects:
+  - **Homegrown Stars**: Luqman Hakim (YSCC Yokohama), Mukhairi Ajmal, Sikh Izhan, Alif Ikmalrizal, Hakimi Abdullah, Haqimi Azim, T. Saravanan, Daniel Amier, Zhafri Yahya.
+  - **Overseas Heritage**: Wan Kuzain (St. Louis City SC / MLS), Wan Kuzri (USA), Mats Deijl (Go Ahead Eagles / Eredivisie), Ferdy Druijf (Rapid Vienna), Richard Chin (England), Kobe Chong (England), Jaami Qureshi (Brighton Academy), Samuel Somerville.
+- **Scouting Readiness Index (1–100)**: Algorithm evaluating league strength coefficient, playing minutes volume, recent ratings, and age curve.
+
+### 6. 📊 Macro Analytics & Official 2026/27 Minutes Leaderboard
+- Verified minutes distribution across Malaysia Super League, J1 League (Japan), Thai League 1 (Thailand), and Cyprus League.
 - Age vs Market Value quadrant mapping.
-- Instant CSV export.
+- Instant CSV export for scouting reports.
 
 ---
 
-## 🛠️ Data Architecture & Collection Strategy
-
-```
-┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
-│      TRANSFERMARKT      │     │         FOTMOB          │     │        SOFASCORE        │
-│  • Biological & Demog.  │     │  • Per-Match Ratings    │     │  • Attribute Radars     │
-│  • Verified 26/27 Mins  │     │  • xG / xA Metrics      │     │  • Positional Heatmaps  │
-│  • Market Values        │     │  • Shot / Action Maps   │     │  • Per-90 Percentiles   │
-└────────────┬────────────┘     └────────────┬────────────┘     └────────────┬────────────┘
-             │                               │                               │
-             └───────────────────────┬───────┴───────────────────────────────┘
-                                     ▼
-                         ┌───────────────────────┐
-                         │    DATA AGGREGATOR    │
-                         │  • Normalization      │
-                         │  • Cache Layer        │
-                         │  • Metric Enrichment  │
-                         └───────────┬───────────┘
-                                     ▼
-                         ┌───────────────────────┐
-                         │  STREAMLIT DASHBOARD  │
-                         └───────────────────────┘
-```
-
-1. **Transfermarkt (`src/data_collectors/transfermarkt_collector.py`)**:
-   - Primary source for biometrics, market valuation, transfer history, and official playing minutes.
-   - Built with caching (`data/cache/transfermarkt/`) and request header spoofing.
-2. **FotMob (`src/data_collectors/fotmob_collector.py`)**:
-   - Ingests match-by-match ratings (6.0 – 10.0 scale) and expected metrics ($xG$, $xA$).
-3. **SofaScore (`src/data_collectors/sofascore_collector.py`)**:
-   - Provides attribute overviews, duel percentages, and touch maps.
-
----
-
-## 📁 Project Directory Structure
+## 📁 Directory Structure
 
 ```
 harimaumalaya-dashboard-analysis/
-├── app.py                      # Master Streamlit Application
-├── requirements.txt            # Python Dependencies
-├── .gitignore                  # Git Ignore Rules
-├── README.md                   # Project Documentation
+├── app.py                         # Master Streamlit FM Application
+├── requirements.txt               # Dependencies
+├── .gitignore                     # Git Rules
+├── README.md                      # Documentation
 ├── data/
-│   ├── squad_asean_2026.json   # 23-Man ASEAN Cup 2026 Verified Roster
-│   └── malaysian_prospects.json# Youth & Heritage Scouting Database
+│   ├── squad_asean_2026.json      # 23-Man ASEAN Cup Squad + Photos + 26/27 Mins
+│   ├── malaysian_prospects.json   # 17 Global Prospects & Heritage Pool
+│   └── legends_past_players.json  # 8 Historical Benchmarks & All-Time Legends
 └── src/
-    ├── data_collectors/
+    ├── data_collectors/           # Collectors & Aggregator
     │   ├── transfermarkt_collector.py
     │   ├── fotmob_collector.py
     │   ├── sofascore_collector.py
     │   └── aggregator.py
     ├── analytics/
-    │   └── metrics.py          # Scouting Readiness & Archetypes
+    │   ├── metrics.py             # Scouting Readiness & Archetypes
+    │   └── tactical_engine.py     # Team Balance & Player Swap Delta Engine
     └── visualizations/
-        ├── pitch.py            # Plotly 2D Football Pitch
-        ├── radar.py            # Attribute & Comparison Radars
-        └── charts.py           # Minutes & Distribution Visuals
+        ├── pitch.py               # FM 2D Tactical Pitch Board
+        ├── heatmap.py             # 2D Pitch Touch Density Heatmaps
+        ├── radar.py               # Polygon & Comparison Radars
+        └── charts.py              # Statistical Charts
 ```
 
 ---
 
-## 🚀 Quickstart & Setup
+## 🚀 Quickstart
 
-### 1. Clone the Repository
 ```bash
 git clone https://github.com/niwlaash/harimaumalaya-dashboard-analysis.git
 cd harimaumalaya-dashboard-analysis
-```
-
-### 2. Install Dependencies
-```bash
 pip install -r requirements.txt
-```
-
-### 3. Launch the Dashboard
-```bash
 streamlit run app.py
 ```
-Access the dashboard at `http://localhost:8501`.
+Open `http://localhost:8501` in your browser.
 
 ---
 
-## 🇲🇾 2026/27 Verified Squad Summary
+## 🇲🇾 2026/27 Squad Minutes Overview
 
 | Player | Position | Club | League | 26/27 Mins |
 |---|---|---|---|:---:|
@@ -149,8 +122,3 @@ Access the dashboard at `http://localhost:8501`.
 | **G. Pavithran** | Winger | Terengganu FC | Malaysia Super League | **100'** |
 | **Hong Wan** | Defensive Midfield | Johor Darul Ta'zim | Malaysia Super League | **90'** |
 | **Syahmi Safari** | Right-Back | Johor Darul Ta'zim | Malaysia Super League | **0'** |
-
----
-
-## 📄 License
-MIT License. Built for Malaysian football research and analytics.

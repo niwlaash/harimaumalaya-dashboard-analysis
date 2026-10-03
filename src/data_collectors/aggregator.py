@@ -43,13 +43,26 @@ class DataAggregator:
             
         return pd.DataFrame(data)
 
+    def load_legends(self) -> pd.DataFrame:
+        """Load historical icons and past national team benchmark players."""
+        path = os.path.join(self.data_dir, "legends_past_players.json")
+        if not os.path.exists(path):
+            raise FileNotFoundError(f"Legends data not found at {path}")
+        
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            
+        return pd.DataFrame(data)
+
     def get_all_players_combined(self) -> pd.DataFrame:
-        """Combine national team squad with prospective pool for scouting comparisons."""
+        """Combine national team squad with prospective pool and legends for scouting comparisons."""
         squad = self.load_squad()
         prospects = self.load_prospects()
+        legends = self.load_legends()
         
         squad["squad_category"] = "Senior National Team (ASEAN Cup 2026)"
         prospects["squad_category"] = "Prospect / Heritage Pool"
+        legends["squad_category"] = "Historical Legends & Past Icons"
         
-        combined = pd.concat([squad, prospects], ignore_index=True)
+        combined = pd.concat([squad, prospects, legends], ignore_index=True)
         return combined

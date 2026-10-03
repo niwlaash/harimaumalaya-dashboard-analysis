@@ -28,7 +28,13 @@
     "pass_acc_pct": 78.4,
     "fotmob_rating": 7.35,
     "sofascore_rating": 7.42,
-    "recent_form": [7.2, 7.5, 7.1, 7.8, 7.4],
+    "recent_form": [
+      7.2,
+      7.5,
+      7.1,
+      7.8,
+      7.4
+    ],
     "attributes": {
       "Shot Stopping": 84,
       "Reflexes": 86,
@@ -37,7 +43,8 @@
       "Aerial Dominance": 80,
       "Composure": 78
     },
-    "scouting_summary": "First-choice national goalkeeper with remarkable reflexes and shot-stopping ability. Dominates the penalty area in domestic and continental competitions."
+    "scouting_summary": "First-choice national goalkeeper with remarkable reflexes and shot-stopping ability. Dominates the penalty area in domestic and continental competitions.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/484748-1673783342.jpg?lm=4711"
   },
   {
     "id": 2,
@@ -68,7 +75,13 @@
     "pass_acc_pct": 71.2,
     "fotmob_rating": 7.15,
     "sofascore_rating": 7.22,
-    "recent_form": [7.0, 7.4, 7.2, 6.9, 7.3],
+    "recent_form": [
+      7.0,
+      7.4,
+      7.2,
+      6.9,
+      7.3
+    ],
     "attributes": {
       "Shot Stopping": 78,
       "Reflexes": 82,
@@ -77,7 +90,8 @@
       "Aerial Dominance": 73,
       "Composure": 72
     },
-    "scouting_summary": "Consistent starter at Kuching City. High volume of saves per 90 with impressive reflex agility."
+    "scouting_summary": "Consistent starter at Kuching City. High volume of saves per 90 with impressive reflex agility.",
+    "photo_url": "https://api.dicebear.com/7.x/bottts/svg?seed=Haziq Nadzli"
   },
   {
     "id": 3,
@@ -108,7 +122,13 @@
     "pass_acc_pct": 68.9,
     "fotmob_rating": 6.95,
     "sofascore_rating": 7.02,
-    "recent_form": [6.8, 7.1, 7.0, 6.9, 7.2],
+    "recent_form": [
+      6.8,
+      7.1,
+      7.0,
+      6.9,
+      7.2
+    ],
     "attributes": {
       "Shot Stopping": 75,
       "Reflexes": 79,
@@ -117,7 +137,8 @@
       "Aerial Dominance": 70,
       "Composure": 70
     },
-    "scouting_summary": "Agile goalkeeper with swift diving reactions. Key contributor for Negeri Sembilan in high-pressure games."
+    "scouting_summary": "Agile goalkeeper with swift diving reactions. Key contributor for Negeri Sembilan in high-pressure games.",
+    "photo_url": "https://api.dicebear.com/7.x/bottts/svg?seed=Azri Ghani"
   },
   {
     "id": 4,
@@ -127,7 +148,9 @@
     "dob": "1996-06-04",
     "height": 185,
     "position": "Right-Back",
-    "secondary_positions": ["Centre-Back"],
+    "secondary_positions": [
+      "Centre-Back"
+    ],
     "position_category": "Defender",
     "preferred_foot": "Right",
     "club": "Cerezo Osaka",
@@ -150,7 +173,13 @@
     "ground_duel_win_pct": 62.4,
     "fotmob_rating": 7.28,
     "sofascore_rating": 7.35,
-    "recent_form": [7.3, 7.1, 7.5, 7.2, 7.4],
+    "recent_form": [
+      7.3,
+      7.1,
+      7.5,
+      7.2,
+      7.4
+    ],
     "attributes": {
       "Pace": 78,
       "Defending": 84,
@@ -159,7 +188,8 @@
       "Tactical Awareness": 86,
       "Aerial": 81
     },
-    "scouting_summary": "National team captain and defensive pillar. Competing at top level in J1 League. Exceptional positional intelligence, composure, and dual capability at RB and CB."
+    "scouting_summary": "National team captain and defensive pillar. Competing at top level in J1 League. Exceptional positional intelligence, composure, and dual capability at RB and CB.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/316422-1772817685.jpg?lm=4711"
   },
   {
     "id": 5,
@@ -191,7 +221,13 @@
     "ground_duel_win_pct": 66.8,
     "fotmob_rating": 7.62,
     "sofascore_rating": 7.55,
-    "recent_form": [7.4, 7.8, 7.5, 7.9, 7.5],
+    "recent_form": [
+      7.4,
+      7.8,
+      7.5,
+      7.9,
+      7.5
+    ],
     "attributes": {
       "Pace": 72,
       "Defending": 83,
@@ -200,7 +236,8 @@
       "Tactical Awareness": 80,
       "Aerial": 89
     },
-    "scouting_summary": "Towering presence with high aerial superiority and set-piece threat (2 goals in 5 games). Superb progressive passing out of the backline."
+    "scouting_summary": "Towering presence with high aerial superiority and set-piece threat (2 goals in 5 games). Superb progressive passing out of the backline.",
+    "photo_url": "https://api.dicebear.com/7.x/bottts/svg?seed=Brad Tapp"
   },
   {
     "id": 6,
@@ -230,9 +267,15 @@
     "pass_acc_pct": 82.5,
     "aerial_win_pct": 64.0,
     "ground_duel_win_pct": 61.5,
-    "fotmob_rating": 7.20,
+    "fotmob_rating": 7.2,
     "sofascore_rating": 7.18,
-    "recent_form": [7.1, 7.3, 7.2, 7.0, 7.4],
+    "recent_form": [
+      7.1,
+      7.3,
+      7.2,
+      7.0,
+      7.4
+    ],
     "attributes": {
       "Pace": 74,
       "Defending": 79,
@@ -241,7 +284,8 @@
       "Tactical Awareness": 76,
       "Aerial": 78
     },
-    "scouting_summary": "Young national defender with aggressive ball-winning profile. Strong recovery pace and forward passing distribution."
+    "scouting_summary": "Young national defender with aggressive ball-winning profile. Strong recovery pace and forward passing distribution.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/541770-1790980996.jpg?lm=4711"
   },
   {
     "id": 7,
@@ -273,7 +317,13 @@
     "ground_duel_win_pct": 64.2,
     "fotmob_rating": 7.48,
     "sofascore_rating": 7.45,
-    "recent_form": [7.5, 7.3, 7.7, 7.2, 7.6],
+    "recent_form": [
+      7.5,
+      7.3,
+      7.7,
+      7.2,
+      7.6
+    ],
     "attributes": {
       "Pace": 76,
       "Defending": 81,
@@ -282,7 +332,8 @@
       "Tactical Awareness": 78,
       "Aerial": 82
     },
-    "scouting_summary": "Rapidly ascending central defender with goalscoring prowess from corners. High defensive work rate, top anticipation, and strong duel efficiency."
+    "scouting_summary": "Rapidly ascending central defender with goalscoring prowess from corners. High defensive work rate, top anticipation, and strong duel efficiency.",
+    "photo_url": "https://api.dicebear.com/7.x/bottts/svg?seed=Ubaidullah Shamsul"
   },
   {
     "id": 8,
@@ -313,8 +364,14 @@
     "aerial_win_pct": 58.0,
     "ground_duel_win_pct": 57.0,
     "fotmob_rating": 6.85,
-    "sofascore_rating": 6.90,
-    "recent_form": [6.8, 6.9, 6.8, 7.0, 6.8],
+    "sofascore_rating": 6.9,
+    "recent_form": [
+      6.8,
+      6.9,
+      6.8,
+      7.0,
+      6.8
+    ],
     "attributes": {
       "Pace": 71,
       "Defending": 75,
@@ -323,7 +380,8 @@
       "Tactical Awareness": 76,
       "Aerial": 69
     },
-    "scouting_summary": "Experienced left-back with high tactical versatility. Reliable defensive coverage and overlapping support in Thai League 1."
+    "scouting_summary": "Experienced left-back with high tactical versatility. Reliable defensive coverage and overlapping support in Thai League 1.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/468513-1706579160.png?lm=4711"
   },
   {
     "id": 9,
@@ -353,9 +411,15 @@
     "pass_acc_pct": 83.1,
     "aerial_win_pct": 72.0,
     "ground_duel_win_pct": 65.4,
-    "fotmob_rating": 7.30,
+    "fotmob_rating": 7.3,
     "sofascore_rating": 7.28,
-    "recent_form": [7.3, 7.1, 7.4, 7.2, 7.5],
+    "recent_form": [
+      7.3,
+      7.1,
+      7.4,
+      7.2,
+      7.5
+    ],
     "attributes": {
       "Pace": 72,
       "Defending": 80,
@@ -364,7 +428,8 @@
       "Tactical Awareness": 81,
       "Aerial": 79
     },
-    "scouting_summary": "Stalwart left-back with immense international experience. Excellent aerial battles, accurate crosses, and unmatched defensive grit."
+    "scouting_summary": "Stalwart left-back with immense international experience. Excellent aerial battles, accurate crosses, and unmatched defensive grit.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/231425-1468423548.jpg?lm=4711"
   },
   {
     "id": 10,
@@ -395,8 +460,14 @@
     "aerial_win_pct": 62.0,
     "ground_duel_win_pct": 60.5,
     "fotmob_rating": 7.18,
-    "sofascore_rating": 7.20,
-    "recent_form": [7.0, 7.3, 7.1, 7.4, 7.1],
+    "sofascore_rating": 7.2,
+    "recent_form": [
+      7.0,
+      7.3,
+      7.1,
+      7.4,
+      7.1
+    ],
     "attributes": {
       "Pace": 79,
       "Defending": 76,
@@ -405,7 +476,8 @@
       "Tactical Awareness": 75,
       "Aerial": 68
     },
-    "scouting_summary": "Energetic fullback with continuous engine up and down the right flank. High tackle frequency and effective crossing delivery."
+    "scouting_summary": "Energetic fullback with continuous engine up and down the right flank. High tackle frequency and effective crossing delivery.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/873953-1790980536.jpg?lm=4711"
   },
   {
     "id": 11,
@@ -415,7 +487,9 @@
     "dob": "1998-02-05",
     "height": 172,
     "position": "Right-Back",
-    "secondary_positions": ["Right Winger"],
+    "secondary_positions": [
+      "Right Winger"
+    ],
     "position_category": "Defender",
     "preferred_foot": "Right",
     "club": "Johor Darul Ta'zim",
@@ -436,9 +510,15 @@
     "pass_acc_pct": 82.0,
     "aerial_win_pct": 48.0,
     "ground_duel_win_pct": 52.0,
-    "fotmob_rating": 6.70,
+    "fotmob_rating": 6.7,
     "sofascore_rating": 6.75,
-    "recent_form": [6.7, 6.7, 6.8, 6.6, 6.7],
+    "recent_form": [
+      6.7,
+      6.7,
+      6.8,
+      6.6,
+      6.7
+    ],
     "attributes": {
       "Pace": 80,
       "Defending": 68,
@@ -447,7 +527,8 @@
       "Tactical Awareness": 71,
       "Aerial": 60
     },
-    "scouting_summary": "Pacy attacking fullback capable of playing as winger. Working his way back into regular rotation."
+    "scouting_summary": "Pacy attacking fullback capable of playing as winger. Working his way back into regular rotation.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/483678-1680051096.jpg?lm=4711"
   },
   {
     "id": 12,
@@ -477,9 +558,15 @@
     "pass_acc_pct": 91.5,
     "aerial_win_pct": 58.0,
     "ground_duel_win_pct": 65.0,
-    "fotmob_rating": 7.40,
+    "fotmob_rating": 7.4,
     "sofascore_rating": 7.38,
-    "recent_form": [7.3, 7.4, 7.5, 7.2, 7.4],
+    "recent_form": [
+      7.3,
+      7.4,
+      7.5,
+      7.2,
+      7.4
+    ],
     "attributes": {
       "Pace": 73,
       "Defending": 82,
@@ -488,17 +575,20 @@
       "Tactical Awareness": 85,
       "Playmaking": 78
     },
-    "scouting_summary": "Metronomic defensive anchor with top European academy pedigree (Wolves). Dictates match tempo and intercepts counter-attacks seamlessly."
+    "scouting_summary": "Metronomic defensive anchor with top European academy pedigree (Wolves). Dictates match tempo and intercepts counter-attacks seamlessly.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/676744-1680051220.jpg?lm=4711"
   },
   {
     "id": 13,
     "name": "Nooa Laine",
-    "full_name": "Nooa Hämäläinen Laine",
+    "full_name": "Nooa H\u00e4m\u00e4l\u00e4inen Laine",
     "age": 24,
     "dob": "2002-11-22",
     "height": 178,
     "position": "Central Midfield",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Midfielder",
     "preferred_foot": "Right",
     "club": "Selangor FC",
@@ -521,7 +611,13 @@
     "ground_duel_win_pct": 61.0,
     "fotmob_rating": 7.52,
     "sofascore_rating": 7.48,
-    "recent_form": [7.4, 7.6, 7.3, 7.7, 7.5],
+    "recent_form": [
+      7.4,
+      7.6,
+      7.3,
+      7.7,
+      7.5
+    ],
     "attributes": {
       "Pace": 74,
       "Defending": 75,
@@ -530,7 +626,8 @@
       "Tactical Awareness": 82,
       "Playmaking": 83
     },
-    "scouting_summary": "Modern box-to-box maestro educated in Finnish football. Outstanding technical vision, line-breaking passes, and high-intensity pressing."
+    "scouting_summary": "Modern box-to-box maestro educated in Finnish football. Outstanding technical vision, line-breaking passes, and high-intensity pressing.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/579932-1790980586.jpg?lm=4711"
   },
   {
     "id": 14,
@@ -540,7 +637,9 @@
     "dob": "1998-03-12",
     "height": 181,
     "position": "Central Midfield",
-    "secondary_positions": ["Defensive Midfield"],
+    "secondary_positions": [
+      "Defensive Midfield"
+    ],
     "position_category": "Midfielder",
     "preferred_foot": "Right",
     "club": "Johor Darul Ta'zim",
@@ -561,8 +660,14 @@
     "shots_p90": 2.4,
     "ground_duel_win_pct": 62.5,
     "fotmob_rating": 7.65,
-    "sofascore_rating": 7.60,
-    "recent_form": [7.5, 7.8, 7.6, 7.4, 7.7],
+    "sofascore_rating": 7.6,
+    "recent_form": [
+      7.5,
+      7.8,
+      7.6,
+      7.4,
+      7.7
+    ],
     "attributes": {
       "Pace": 75,
       "Shooting": 82,
@@ -571,7 +676,8 @@
       "Defending": 74,
       "Work Rate": 88
     },
-    "scouting_summary": "Dynamic powerhouse midfielder known for thunderous long-range strikes (2 goals in 191 mins). High engine and box-to-box arrival timing."
+    "scouting_summary": "Dynamic powerhouse midfielder known for thunderous long-range strikes (2 goals in 191 mins). High engine and box-to-box arrival timing.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/404585-1736178548.jpg?lm=4711"
   },
   {
     "id": 15,
@@ -581,7 +687,9 @@
     "dob": "2001-09-16",
     "height": 172,
     "position": "Central Midfield",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Midfielder",
     "preferred_foot": "Left",
     "club": "Selangor FC",
@@ -600,9 +708,15 @@
     "pass_acc_pct": 83.4,
     "key_passes_p90": 1.6,
     "ground_duel_win_pct": 56.0,
-    "fotmob_rating": 7.10,
+    "fotmob_rating": 7.1,
     "sofascore_rating": 7.12,
-    "recent_form": [7.0, 7.2, 7.1, 7.0, 7.2],
+    "recent_form": [
+      7.0,
+      7.2,
+      7.1,
+      7.0,
+      7.2
+    ],
     "attributes": {
       "Pace": 74,
       "Shooting": 73,
@@ -611,7 +725,8 @@
       "Tactical Awareness": 74,
       "Work Rate": 78
     },
-    "scouting_summary": "Left-footed playmaker with smooth close control and set-piece finesse. Creative link between midfield and forward lines."
+    "scouting_summary": "Left-footed playmaker with smooth close control and set-piece finesse. Creative link between midfield and forward lines.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/894318-1790980981.jpg?lm=4711"
   },
   {
     "id": 16,
@@ -621,7 +736,9 @@
     "dob": "1994-08-16",
     "height": 168,
     "position": "Central Midfield",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Midfielder",
     "preferred_foot": "Right",
     "club": "Kuching City FC",
@@ -641,8 +758,14 @@
     "key_passes_p90": 1.7,
     "ground_duel_win_pct": 54.0,
     "fotmob_rating": 7.08,
-    "sofascore_rating": 7.10,
-    "recent_form": [7.0, 7.1, 6.9, 7.2, 7.1],
+    "sofascore_rating": 7.1,
+    "recent_form": [
+      7.0,
+      7.1,
+      6.9,
+      7.2,
+      7.1
+    ],
     "attributes": {
       "Pace": 68,
       "Shooting": 71,
@@ -651,7 +774,8 @@
       "Tactical Awareness": 80,
       "Composure": 82
     },
-    "scouting_summary": "Veteran midfield general with exquisite vision and tight-space retention. Orchestrates attacking phases from deep."
+    "scouting_summary": "Veteran midfield general with exquisite vision and tight-space retention. Orchestrates attacking phases from deep.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/210753-1680051193.jpg?lm=4711"
   },
   {
     "id": 17,
@@ -661,7 +785,9 @@
     "dob": "2002-05-04",
     "height": 174,
     "position": "Right Winger",
-    "secondary_positions": ["Left Winger"],
+    "secondary_positions": [
+      "Left Winger"
+    ],
     "position_category": "Attacker",
     "preferred_foot": "Right",
     "club": "Johor Darul Ta'zim",
@@ -684,7 +810,13 @@
     "xA_p90": 0.68,
     "fotmob_rating": 8.42,
     "sofascore_rating": 8.35,
-    "recent_form": [8.5, 8.2, 8.6, 8.1, 8.7],
+    "recent_form": [
+      8.5,
+      8.2,
+      8.6,
+      8.1,
+      8.7
+    ],
     "attributes": {
       "Pace": 91,
       "Dribbling": 90,
@@ -693,7 +825,8 @@
       "Physical": 74,
       "Vision": 88
     },
-    "scouting_summary": "Generational Malaysian talent and reigning MVP. Phenomenal playmaking numbers (10 assists in 7 matches in 26/27). World-class 1v1 take-on ability and ACL Elite proven performer."
+    "scouting_summary": "Generational Malaysian talent and reigning MVP. Phenomenal playmaking numbers (10 assists in 7 matches in 26/27). World-class 1v1 take-on ability and ACL Elite proven performer.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/803158-1736178564.jpg?lm=4711"
   },
   {
     "id": 18,
@@ -703,7 +836,9 @@
     "dob": "1998-01-07",
     "height": 158,
     "position": "Left Winger",
-    "secondary_positions": ["Right Winger"],
+    "secondary_positions": [
+      "Right Winger"
+    ],
     "position_category": "Attacker",
     "preferred_foot": "Right",
     "club": "Selangor FC",
@@ -723,8 +858,14 @@
     "dribble_succ_pct": 68.0,
     "shots_p90": 2.5,
     "fotmob_rating": 7.55,
-    "sofascore_rating": 7.50,
-    "recent_form": [7.3, 7.7, 7.4, 7.6, 7.8],
+    "sofascore_rating": 7.5,
+    "recent_form": [
+      7.3,
+      7.7,
+      7.4,
+      7.6,
+      7.8
+    ],
     "attributes": {
       "Pace": 88,
       "Dribbling": 87,
@@ -733,17 +874,20 @@
       "Agility": 92,
       "Determination": 95
     },
-    "scouting_summary": "Inspirational talisman known as 'Mickey'. Electrifying low-center-of-gravity dribbling, clinical finishing, and incredible mental resilience."
+    "scouting_summary": "Inspirational talisman known as 'Mickey'. Electrifying low-center-of-gravity dribbling, clinical finishing, and incredible mental resilience.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/480250-1790980590.jpg?lm=4711"
   },
   {
     "id": 19,
-    "name": "Paulo Josué",
-    "full_name": "Paulo Josué Stürmer dos Reis",
+    "name": "Paulo Josu\u00e9",
+    "full_name": "Paulo Josu\u00e9 St\u00fcrmer dos Reis",
     "age": 37,
     "dob": "1989-03-13",
     "height": 184,
     "position": "Centre-Forward",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Attacker",
     "preferred_foot": "Left",
     "club": "KL City FC",
@@ -763,7 +907,13 @@
     "shots_p90": 3.4,
     "fotmob_rating": 7.88,
     "sofascore_rating": 7.82,
-    "recent_form": [7.6, 8.1, 7.9, 8.0, 7.8],
+    "recent_form": [
+      7.6,
+      8.1,
+      7.9,
+      8.0,
+      7.8
+    ],
     "attributes": {
       "Pace": 65,
       "Shooting": 85,
@@ -772,12 +922,13 @@
       "Tactical Awareness": 87,
       "Composure": 88
     },
-    "scouting_summary": "Lethal dead-ball specialist and clutch finisher (5 goals in 7 games in 26/27). Commands the attacking third with visionary passes and calm leadership."
+    "scouting_summary": "Lethal dead-ball specialist and clutch finisher (5 goals in 7 games in 26/27). Commands the attacking third with visionary passes and calm leadership.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/377149-1439968786.jpg?lm=4711"
   },
   {
     "id": 20,
-    "name": "Bérgson",
-    "full_name": "Bérgson Gustavo Silveira da Silva",
+    "name": "B\u00e9rgson",
+    "full_name": "B\u00e9rgson Gustavo Silveira da Silva",
     "age": 35,
     "dob": "1991-02-09",
     "height": 181,
@@ -802,7 +953,13 @@
     "xG_p90": 0.88,
     "fotmob_rating": 8.18,
     "sofascore_rating": 8.12,
-    "recent_form": [8.2, 8.0, 8.4, 7.9, 8.3],
+    "recent_form": [
+      8.2,
+      8.0,
+      8.4,
+      7.9,
+      8.3
+    ],
     "attributes": {
       "Pace": 78,
       "Finishing": 92,
@@ -811,7 +968,8 @@
       "Shot Power": 90,
       "Positioning": 91
     },
-    "scouting_summary": "All-time MSL goal record breaker with extraordinary conversion rate (7 goals in 452 minutes in 26/27). Ruthless in the box from all angles."
+    "scouting_summary": "All-time MSL goal record breaker with extraordinary conversion rate (7 goals in 452 minutes in 26/27). Ruthless in the box from all angles.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/135061-1554733318.jpg?lm=4711"
   },
   {
     "id": 21,
@@ -821,7 +979,9 @@
     "dob": "2003-03-19",
     "height": 184,
     "position": "Left Winger",
-    "secondary_positions": ["Centre-Forward"],
+    "secondary_positions": [
+      "Centre-Forward"
+    ],
     "position_category": "Attacker",
     "preferred_foot": "Right",
     "club": "Omonia 29th May",
@@ -842,7 +1002,13 @@
     "ground_duel_win_pct": 58.0,
     "fotmob_rating": 7.32,
     "sofascore_rating": 7.28,
-    "recent_form": [7.1, 7.5, 7.2, 7.4, 7.4],
+    "recent_form": [
+      7.1,
+      7.5,
+      7.2,
+      7.4,
+      7.4
+    ],
     "attributes": {
       "Pace": 82,
       "Physical": 80,
@@ -851,7 +1017,8 @@
       "Work Rate": 86,
       "Aerial": 78
     },
-    "scouting_summary": "High-intensity forward making strong impression in European football with Omonia 29th May. Direct running, physical pressing, and versatile across front three."
+    "scouting_summary": "High-intensity forward making strong impression in European football with Omonia 29th May. Direct running, physical pressing, and versatile across front three.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/1109755-1737916537.png?lm=4711"
   },
   {
     "id": 22,
@@ -861,7 +1028,9 @@
     "dob": "1999-05-03",
     "height": 169,
     "position": "Right Winger",
-    "secondary_positions": ["Attacking Midfield"],
+    "secondary_positions": [
+      "Attacking Midfield"
+    ],
     "position_category": "Attacker",
     "preferred_foot": "Left",
     "club": "Johor Darul Ta'zim",
@@ -882,7 +1051,13 @@
     "xA_p90": 0.72,
     "fotmob_rating": 8.25,
     "sofascore_rating": 8.18,
-    "recent_form": [8.1, 8.4, 8.2, 8.3, 8.2],
+    "recent_form": [
+      8.1,
+      8.4,
+      8.2,
+      8.3,
+      8.2
+    ],
     "attributes": {
       "Pace": 84,
       "Dribbling": 89,
@@ -891,7 +1066,8 @@
       "Vision": 89,
       "Agility": 88
     },
-    "scouting_summary": "Incredible creative dynamo (8 assists in 319 minutes in 26/27). Mesmerizing dribbling style cuts inside from the right wing with laser-guided through balls."
+    "scouting_summary": "Incredible creative dynamo (8 assists in 319 minutes in 26/27). Mesmerizing dribbling style cuts inside from the right wing with laser-guided through balls.",
+    "photo_url": "https://img.a.transfermarkt.technology/portrait/header/534358-1569492781.jpg?lm=4711"
   },
   {
     "id": 23,
@@ -901,7 +1077,9 @@
     "dob": "2005-01-10",
     "height": 172,
     "position": "Left Winger",
-    "secondary_positions": ["Right Winger"],
+    "secondary_positions": [
+      "Right Winger"
+    ],
     "position_category": "Attacker",
     "preferred_foot": "Right",
     "club": "Terengganu FC",
@@ -921,7 +1099,13 @@
     "shots_p90": 1.9,
     "fotmob_rating": 6.85,
     "sofascore_rating": 6.88,
-    "recent_form": [6.8, 6.9, 6.8, 7.0, 6.9],
+    "recent_form": [
+      6.8,
+      6.9,
+      6.8,
+      7.0,
+      6.9
+    ],
     "attributes": {
       "Pace": 86,
       "Dribbling": 80,
@@ -930,6 +1114,7 @@
       "Agility": 84,
       "Potential": 87
     },
-    "scouting_summary": "Exciting U23 youth breakout sensation. Blistering raw speed and fearless direct running off the bench."
+    "scouting_summary": "Exciting U23 youth breakout sensation. Blistering raw speed and fearless direct running off the bench.",
+    "photo_url": "https://api.dicebear.com/7.x/bottts/svg?seed=G. Pavithran"
   }
 ]

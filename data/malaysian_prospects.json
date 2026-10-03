@@ -25,6 +25,7 @@
       "Work Rate": 84,
       "Potential": 85
     },
+    "heatmap_type": "advanced_forward",
     "scouting_summary": "Explosive forward gaining valuable technical experience in Japan after stints in Belgium (K.V. Kortrijk) and Iceland. Elite burst of acceleration and instinctive penalty box runs."
   },
   {
@@ -53,6 +54,7 @@
       "Composure": 84,
       "Potential": 86
     },
+    "heatmap_type": "midfield_pivot",
     "scouting_summary": "Top-tier MLS-developed central midfielder dubbed the 'American Iniesta'. High passing accuracy (90%+), superb progressive distribution, and keen tactical understanding. High priority for national team midfield."
   },
   {
@@ -81,6 +83,7 @@
       "Vision": 79,
       "Potential": 84
     },
+    "heatmap_type": "box_to_box",
     "scouting_summary": "Younger brother of Wan Kuzain. High ceiling box-to-box midfielder with sharp turn of pace and vertical transitional passing."
   },
   {
@@ -109,6 +112,7 @@
       "Versatility": 88,
       "Potential": 83
     },
+    "heatmap_type": "wing_back_right",
     "scouting_summary": "Charlton Athletic academy graduate. Incredibly versatile player capable of operating at both fullback positions and central midfield with high physical stamina."
   },
   {
@@ -137,6 +141,7 @@
       "Creativity": 84,
       "Potential": 80
     },
+    "heatmap_type": "advanced_playmaker",
     "scouting_summary": "Former Cagliari and West Brom youth prospect. Silky dribbler with creative flair, eye for a defense-splitting through-ball, and long-range shooting ability."
   },
   {
@@ -165,6 +170,7 @@
       "Tactical Awareness": 88,
       "Experience": 90
     },
+    "heatmap_type": "wing_back_right",
     "scouting_summary": "Captain and established starter in the Dutch Eredivisie. Elite defensive organization and consistent match ratings against top European clubs like Ajax, PSV, and Feyenoord. If documentation clears FIFA criteria, instant starter for Malaysia."
   },
   {
@@ -192,6 +198,7 @@
       "Heading": 88,
       "Hold-up Play": 87
     },
+    "heatmap_type": "target_forward",
     "scouting_summary": "Towering target man with lethal aerial power and clinical penalty box finishing. Played for AZ Alkmaar and Rapid Vienna in European club competitions. Would provide Harimau Malaya unprecedented physical presence up front."
   },
   {
@@ -220,6 +227,7 @@
       "Work Rate": 83,
       "Potential": 87
     },
+    "heatmap_type": "box_to_box",
     "scouting_summary": "Former Malaysia U23 captain. High-tempo central midfielder with leadership maturity, venomous shooting from edge of box, and set-piece delivery."
   },
   {
@@ -248,6 +256,7 @@
       "Work Rate": 82,
       "Potential": 84
     },
+    "heatmap_type": "advanced_forward",
     "scouting_summary": "Golden Boot winner at AFF U23 Championship. Natural predatory instincts in the 6-yard box and relentless off-the-ball pressing."
   },
   {
@@ -276,6 +285,7 @@
       "Work Rate": 81,
       "Potential": 82
     },
+    "heatmap_type": "inverted_winger_left",
     "scouting_summary": "Explosive winger with clutch goal record in domestic finals. Direct dribbler who loves isolating fullbacks in 1v1 situations."
   },
   {
@@ -303,6 +313,7 @@
       "Aerial Dominance": 76,
       "Potential": 88
     },
+    "heatmap_type": "goalkeeper",
     "scouting_summary": "Primary future candidate for Malaysia #1 jersey. Exceptional modern goalkeeper equipped with swept-up footwork, composed distribution, and sharp reaction saves."
   },
   {
@@ -331,6 +342,151 @@
       "Flair": 86,
       "Potential": 85
     },
+    "heatmap_type": "inverted_winger_right",
     "scouting_summary": "Brighton & Hove Albion academy product. Highly technical wide forward with quick change of pace and trickery in tight half-spaces."
+  },
+  {
+    "id": 113,
+    "name": "Haqimi Azim",
+    "full_name": "Muhammad Haqimi Azim Rosli",
+    "age": 23,
+    "dob": "2003-01-06",
+    "height": 184,
+    "position": "Centre-Forward",
+    "secondary_positions": ["Right Winger"],
+    "position_category": "Attacker",
+    "club": "KL City FC",
+    "league": "Malaysia Super League",
+    "country": "Malaysia",
+    "citizenship": "Malaysia",
+    "eligibility_type": "Homegrown",
+    "readiness_index": 81,
+    "market_value_eur": 175000,
+    "transfermarkt_id": 968212,
+    "attributes": {
+      "Pace": 85,
+      "Finishing": 79,
+      "Physical": 82,
+      "Heading": 80,
+      "Work Rate": 86,
+      "Potential": 87
+    },
+    "heatmap_type": "advanced_forward",
+    "scouting_summary": "Physically imposing modern young forward with high running volume. Capable of driving down the right wing or leading the line as an athletic number 9."
+  },
+  {
+    "id": 114,
+    "name": "T. Saravanan",
+    "full_name": "Thirumurugan Saravanan",
+    "age": 24,
+    "dob": "2001-02-26",
+    "height": 172,
+    "position": "Left Winger",
+    "secondary_positions": ["Right Winger"],
+    "position_category": "Attacker",
+    "club": "Sri Pahang FC",
+    "league": "Malaysia Super League",
+    "country": "Malaysia",
+    "citizenship": "Malaysia",
+    "eligibility_type": "Homegrown",
+    "readiness_index": 79,
+    "market_value_eur": 150000,
+    "transfermarkt_id": 918239,
+    "attributes": {
+      "Pace": 87,
+      "Dribbling": 83,
+      "Shooting": 76,
+      "Passing": 75,
+      "Agility": 88,
+      "Potential": 84
+    },
+    "heatmap_type": "inverted_winger_left",
+    "scouting_summary": "Hat-trick hero at SEA Games. Tremendous acceleration over first 10 yards and sharp cutting inside onto stronger foot."
+  },
+  {
+    "id": 115,
+    "name": "Daniel Amier",
+    "full_name": "Muhammad Daniel Amier Norhisham",
+    "age": 29,
+    "dob": "1997-03-27",
+    "height": 173,
+    "position": "Central Midfield",
+    "secondary_positions": ["Defensive Midfield"],
+    "position_category": "Midfielder",
+    "club": "Kuching City FC",
+    "league": "Malaysia Super League",
+    "country": "Malaysia",
+    "citizenship": "Malaysia",
+    "eligibility_type": "Homegrown",
+    "readiness_index": 77,
+    "market_value_eur": 150000,
+    "transfermarkt_id": 554395,
+    "attributes": {
+      "Pace": 72,
+      "Passing": 82,
+      "Vision": 81,
+      "Tackling": 76,
+      "Composure": 80,
+      "Potential": 79
+    },
+    "heatmap_type": "midfield_pivot",
+    "scouting_summary": "AFC U23 Championship 2018 historic hero. Resurgent playmaking anchor at Kuching City with measured transitional passing and composure under pressure."
+  },
+  {
+    "id": 116,
+    "name": "Zhafri Yahya",
+    "full_name": "Muhammad Zhafri Yahya",
+    "age": 31,
+    "dob": "1994-09-25",
+    "height": 172,
+    "position": "Central Midfield",
+    "secondary_positions": ["Attacking Midfield"],
+    "position_category": "Midfielder",
+    "club": "KL City FC",
+    "league": "Malaysia Super League",
+    "country": "Malaysia",
+    "citizenship": "Malaysia",
+    "eligibility_type": "Homegrown",
+    "readiness_index": 80,
+    "market_value_eur": 175000,
+    "transfermarkt_id": 483912,
+    "attributes": {
+      "Pace": 74,
+      "Passing": 81,
+      "Shooting": 79,
+      "Work Rate": 88,
+      "Tackling": 77,
+      "Leadership": 82
+    },
+    "heatmap_type": "box_to_box",
+    "scouting_summary": "Malaysia Cup 2021 final goalscorer and man of the match. Tireless workhorse with knack for late surging runs into the box."
+  },
+  {
+    "id": 117,
+    "name": "Samuel Somerville",
+    "full_name": "Samuel Jacob Somerville",
+    "age": 31,
+    "dob": "1994-11-07",
+    "height": 186,
+    "position": "Goalkeeper",
+    "position_category": "Goalkeeper",
+    "club": "Selangor FC",
+    "league": "Malaysia Super League",
+    "country": "Malaysia",
+    "citizenship": "Malaysia / England",
+    "eligibility_type": "Heritage (Grandmother Malaysian)",
+    "readiness_index": 78,
+    "market_value_eur": 150000,
+    "transfermarkt_id": 204649,
+    "attributes": {
+      "Shot Stopping": 78,
+      "Reflexes": 80,
+      "Distribution": 77,
+      "Command of Area": 76,
+      "Aerial Dominance": 75,
+      "Composure": 76
+    },
+    "heatmap_type": "goalkeeper",
+    "scouting_summary": "Reliable shot stopper with UK youth academy background (Slough Town / Tooting). Proven presence in ACL Two matches with Selangor FC."
   }
 ]
