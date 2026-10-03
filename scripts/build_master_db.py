@@ -1834,6 +1834,18 @@ def main():
 
     # 3. Calculate consistent Readiness Index and ensure all players have uniform schema
     for p in master_players:
+        # Standardize numerical performance attributes
+        p["minutes_26_27"] = int(p.get("minutes_26_27") or 0)
+        p["minutes_25_26"] = int(p.get("minutes_25_26") or 0)
+        p["apps_26_27"] = int(p.get("apps_26_27") or 0)
+        p["goals_26_27"] = int(p.get("goals_26_27") or 0)
+        p["assists_26_27"] = int(p.get("assists_26_27") or 0)
+        p["goal_contributions_26_27"] = int(p.get("goal_contributions_26_27") or (p["goals_26_27"] + p["assists_26_27"]))
+        p["market_value_eur"] = int(p.get("market_value_eur") or 100000)
+        p["age"] = int(p.get("age") or 25)
+        p["preferred_foot"] = p.get("preferred_foot", "Right")
+        p["height"] = int(p.get("height") or 178)
+
         # League Tier Coefficient
         league = p.get("league", "")
         if any(top in league for top in ["Eredivisie", "MLS", "J1 League", "Bundesliga", "Premier League", "La Liga"]):

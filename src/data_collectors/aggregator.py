@@ -62,24 +62,32 @@ class DataAggregator:
         return df
 
     def _add_derived_metrics(self, df: pd.DataFrame):
-        """Adds p90 metrics and goal contributions safely."""
-        if "minutes_26_27" in df.columns:
-            if "goals_26_27" in df.columns:
-                df["goals_p90"] = df.apply(
-                    lambda r: round((r.get("goals_26_27", 0) / r["minutes_26_27"]) * 90, 2)
-                    if pd.notna(r.get("minutes_26_27")) and r["minutes_26_27"] > 0 else 0.0, axis=1
-                )
-            if "assists_26_27" in df.columns:
-                df["assists_p90"] = df.apply(
-                    lambda r: round((r.get("assists_26_27", 0) / r["minutes_26_27"]) * 90, 2)
-                    if pd.notna(r.get("minutes_26_27")) and r["minutes_26_27"] > 0 else 0.0, axis=1
-                )
-            if "goals_26_27" in df.columns and "assists_26_27" in df.columns:
-                df["goal_contributions_26_27"] = df["goals_26_27"].fillna(0) + df["assists_26_27"].fillna(0)
-                df["contrib_p90"] = df.apply(
-                    lambda r: round((r["goal_contributions_26_27"] / r["minutes_26_27"]) * 90, 2)
-                    if pd.notna(r.get("minutes_26_27")) and r["minutes_26_27"] > 0 else 0.0, axis=1
-                )
+        """Adds p90 metrics and goal contributions safely and guarantees essential columns exist."""
+        required_cols = [
+            "minutes_26_27", "minutes_25_26", "apps_26_27",
+            "goals_26_27", "assists_26_27", "goal_contributions_26_27",
+            "market_value_eur", "age"
+        ]
+        for col in required_cols:
+            if col not in df.columns:
+                df[col] = 0
+            else:
+                df[col] = pd.to_numeric(df[col], errors="coerce").fillna(0)
+
+        df["goal_contributions_26_27"] = df["goals_26_27"] + df["assists_26_27"]
+
+        df["goals_p90"] = df.apply(
+            lambda r: round((r["goals_26_27"] / r["minutes_26_27"]) * 90, 2)
+            if r["minutes_26_27"] > 0 else 0.0, axis=1
+        )
+        df["assists_p90"] = df.apply(
+            lambda r: round((r["assists_26_27"] / r["minutes_26_27"]) * 90, 2)
+            if r["minutes_26_27"] > 0 else 0.0, axis=1
+        )
+        df["contrib_p90"] = df.apply(
+            lambda r: round((r["goal_contributions_26_27"] / r["minutes_26_27"]) * 90, 2)
+            if r["minutes_26_27"] > 0 else 0.0, axis=1
+        )
 
     def get_all_players_combined(self) -> pd.DataFrame:
         """Combine national team squad with prospective pool and recent internationals for scouting comparisons."""

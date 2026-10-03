@@ -728,16 +728,22 @@ elif selected_workspace == "📊 Squad Performance & Minutes Analytics":
     # Filter target dataset
     chart_df = master_df.copy()
     if "Active ASEAN" in pool_filter:
-        chart_df = squad_df.copy()
+        chart_df = chart_df[chart_df["pool_status"] == "ASEAN Cup 2026 Squad"]
     elif "Recent Senior" in pool_filter:
-        chart_df = past_df.copy()
+        chart_df = chart_df[chart_df["pool_status"] == "Senior International (2023-2026)"]
     elif "Prospects" in pool_filter:
-        chart_df = prospects_df.copy()
+        chart_df = chart_df[chart_df["pool_status"].astype(str).str.contains("Prospect|Heritage|Diaspora", case=False, na=False)]
 
     if pos_filter_vis != "All Positions":
         cat_map = {"Goalkeepers": "Goalkeeper", "Defenders": "Defender", "Midfielders": "Midfielder", "Attackers": "Attacker"}
         target_cat = cat_map.get(pos_filter_vis, "")
         chart_df = chart_df[chart_df["position_category"] == target_cat]
+
+    # Ensure all visualization metrics are present and numeric
+    for col in ["minutes_26_27", "goals_26_27", "assists_26_27", "goal_contributions_26_27", "market_value_eur", "age"]:
+        if col not in chart_df.columns:
+            chart_df[col] = 0
+        chart_df[col] = pd.to_numeric(chart_df[col], errors="coerce").fillna(0)
 
     chart_tab1, chart_tab2, chart_tab3 = st.tabs([
         "1. Verified Minutes Leaderboard",
@@ -747,20 +753,28 @@ elif selected_workspace == "📊 Squad Performance & Minutes Analytics":
 
     with chart_tab1:
         st.markdown("#### Official 2026/27 Club Playing Minutes (Transfermarkt Verified)")
-        top_mins = chart_df.sort_values(by="minutes_26_27", ascending=False).head(25)
-        st.plotly_chart(create_minutes_bar_chart(top_mins), use_container_width=True)
+        if not chart_df.empty:
+            top_mins = chart_df.sort_values(by="minutes_26_27", ascending=False).head(25)
+            st.plotly_chart(create_minutes_bar_chart(top_mins), use_container_width=True)
+        else:
+            st.info("No player records found for the selected scope/position filter.")
 
     with chart_tab2:
         st.markdown("#### Direct Goal Contributions (2026/27 Season)")
-        contrib_c = "goal_contributions_26_27" if "goal_contributions_26_27" in chart_df.columns else "goals_26_27"
-        top_contrib = chart_df[chart_df[contrib_c] > 0].sort_values(by=contrib_c, ascending=False).head(20)
-        if top_contrib.empty:
-            top_contrib = chart_df.head(10)
-        st.plotly_chart(create_goal_contributions_chart(top_contrib), use_container_width=True)
+        if not chart_df.empty:
+            top_contrib = chart_df[chart_df["goal_contributions_26_27"] > 0].sort_values(by="goal_contributions_26_27", ascending=False).head(20)
+            if top_contrib.empty:
+                top_contrib = chart_df.sort_values(by="minutes_26_27", ascending=False).head(10)
+            st.plotly_chart(create_goal_contributions_chart(top_contrib), use_container_width=True)
+        else:
+            st.info("No player records found for the selected scope/position filter.")
 
     with chart_tab3:
         st.markdown("#### Age Curve vs. Market Value (€) Matrix")
-        st.plotly_chart(create_age_value_quadrant(chart_df), use_container_width=True)
+        if not chart_df.empty:
+            st.plotly_chart(create_age_value_quadrant(chart_df), use_container_width=True)
+        else:
+            st.info("No player records found for the selected scope/position filter.")
 
     # Export
     st.markdown("---")

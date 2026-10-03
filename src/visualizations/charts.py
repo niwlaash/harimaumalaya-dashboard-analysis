@@ -4,12 +4,33 @@ import pandas as pd
 
 def create_minutes_bar_chart(df: pd.DataFrame, *args, **kwargs):
     """Horizontal stacked or grouped bar chart of player playing time in 26/27."""
+    if df is None or df.empty:
+        fig = go.Figure()
+        fig.update_layout(
+            title=dict(text="No player data available", font=dict(color="#f4d03f", size=14)),
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            height=300
+        )
+        return fig
+
+    df_copy = df.copy()
+    if "minutes_26_27" not in df_copy.columns:
+        df_copy["minutes_26_27"] = 0
+    else:
+        df_copy["minutes_26_27"] = pd.to_numeric(df_copy["minutes_26_27"], errors="coerce").fillna(0)
+
+    if "name" not in df_copy.columns:
+        df_copy["name"] = "Player"
+    if "club" not in df_copy.columns:
+        df_copy["club"] = ""
+
     top_n = kwargs.get("top_n", args[0] if len(args) > 0 else 25)
-    if top_n and len(df) > top_n:
-        df_sorted = df.sort_values(by="minutes_26_27", ascending=False).head(top_n).sort_values(by="minutes_26_27", ascending=True)
+    if top_n and len(df_copy) > top_n:
+        df_sorted = df_copy.sort_values(by="minutes_26_27", ascending=False).head(top_n).sort_values(by="minutes_26_27", ascending=True)
         title_text = f"Top {top_n} Minutes Played (2026/27 Season)"
     else:
-        df_sorted = df.sort_values(by="minutes_26_27", ascending=True)
+        df_sorted = df_copy.sort_values(by="minutes_26_27", ascending=True)
         title_text = f"Minutes Played (2026/27 Season - {len(df_sorted)} Players)"
 
     fig = go.Figure()
@@ -72,23 +93,42 @@ def create_form_trend_chart(ratings: list, player_name: str):
 
 def create_goal_contributions_chart(df: pd.DataFrame, *args, **kwargs):
     """Grouped bar chart for top goal contributors (Goals vs Assists)."""
+    if df is None or df.empty:
+        fig = go.Figure()
+        fig.update_layout(
+            title=dict(text="No player data available", font=dict(color="#f4d03f", size=14)),
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            height=300
+        )
+        return fig
+
+    df_copy = df.copy()
+    for col in ["goals_26_27", "assists_26_27", "goal_contributions_26_27"]:
+        if col not in df_copy.columns:
+            df_copy[col] = 0
+        else:
+            df_copy[col] = pd.to_numeric(df_copy[col], errors="coerce").fillna(0)
+
+    if "name" not in df_copy.columns:
+        df_copy["name"] = "Player"
+
     top_n = kwargs.get("top_n", args[0] if len(args) > 0 else 20)
-    contrib_col = "goal_contributions_26_27" if "goal_contributions_26_27" in df.columns else "goals_26_27"
-    attackers = df[df[contrib_col] > 0].sort_values(by=contrib_col, ascending=False).head(top_n)
-    
+    attackers = df_copy[df_copy["goal_contributions_26_27"] > 0].sort_values(by="goal_contributions_26_27", ascending=False).head(top_n)
+
     if attackers.empty:
-        attackers = df.head(min(12, len(df)))
+        attackers = df_copy.head(min(12, len(df_copy)))
 
     fig = go.Figure()
     fig.add_trace(go.Bar(
         x=attackers["name"],
-        y=attackers["goals_26_27"].fillna(0),
+        y=attackers["goals_26_27"],
         name="Goals",
         marker_color="#ef4444"
     ))
     fig.add_trace(go.Bar(
         x=attackers["name"],
-        y=attackers["assists_26_27"].fillna(0),
+        y=attackers["assists_26_27"],
         name="Assists",
         marker_color="#f59e0b"
     ))
@@ -109,11 +149,24 @@ def create_goal_contributions_chart(df: pd.DataFrame, *args, **kwargs):
 
 def create_age_value_quadrant(df: pd.DataFrame):
     """Scatter plot mapping Age vs Market Value with quadrant overlays."""
+    if df is None or df.empty:
+        fig = go.Figure()
+        fig.update_layout(
+            title=dict(text="No player data available", font=dict(color="#f4d03f", size=14)),
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            height=300
+        )
+        return fig
+
     df_plot = df.copy()
+    df_plot["name"] = df_plot.get("name", "Player").fillna("Player")
+    df_plot["club"] = df_plot.get("club", "Free Agent").fillna("Free Agent")
+    df_plot["league"] = df_plot.get("league", "Domestic").fillna("Domestic")
     df_plot["age"] = pd.to_numeric(df_plot.get("age", 25), errors="coerce").fillna(25)
     df_plot["market_value_eur"] = pd.to_numeric(df_plot.get("market_value_eur", 100000), errors="coerce").fillna(100000)
-    df_plot["plot_size"] = pd.to_numeric(df_plot.get("minutes_26_27", 100), errors="coerce").fillna(100)
-    df_plot["plot_size"] = df_plot["plot_size"].apply(lambda m: max(8, min(40, float(m) / 20.0 + 8.0)))
+    df_plot["minutes_26_27"] = pd.to_numeric(df_plot.get("minutes_26_27", 100), errors="coerce").fillna(100)
+    df_plot["plot_size"] = df_plot["minutes_26_27"].apply(lambda m: max(8, min(40, float(m) / 20.0 + 8.0)))
     df_plot["position_category"] = df_plot.get("position_category", "Midfielder").fillna("Midfielder")
 
     fig = px.scatter(
